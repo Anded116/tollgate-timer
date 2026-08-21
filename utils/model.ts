@@ -1,3 +1,5 @@
+import { t } from './i18n';
+
 export interface Settings {
   /** Домены под контролем (без www, без протокола). */
   sites: string[];
@@ -45,24 +47,24 @@ export const DEFAULT_SETTINGS: Settings = {
 
 export interface Preset {
   key: string;
-  label: string;
+  labelKey: string;
   values: Omit<Settings, 'sites' | 'sharedPool'>;
 }
 
 export const PRESETS: Preset[] = [
   {
     key: 'soft',
-    label: 'Мягкий',
+    labelKey: 'presetSoft',
     values: { freeVisits: 3, baseSec: 10, growth: 1.5, capMin: 5, tauHours: 4, cooldownMin: 5, sessionMaxMin: 30 },
   },
   {
     key: 'medium',
-    label: 'Средний',
+    labelKey: 'presetMedium',
     values: { freeVisits: 2, baseSec: 15, growth: 1.7, capMin: 10, tauHours: 6, cooldownMin: 5, sessionMaxMin: 20 },
   },
   {
     key: 'hard',
-    label: 'Жёсткий',
+    labelKey: 'presetHard',
     values: { freeVisits: 1, baseSec: 20, growth: 2.0, capMin: 15, tauHours: 8, cooldownMin: 3, sessionMaxMin: 10 },
   },
 ];
@@ -112,6 +114,6 @@ export function formatDuration(totalSec: number): string {
   const sec = Math.max(0, Math.ceil(totalSec));
   const m = Math.floor(sec / 60);
   const s = sec % 60;
-  if (m === 0) return `${s} сек`;
+  if (m === 0) return t('unitSec', String(s));
   return `${m}:${String(s).padStart(2, '0')}`;
 }

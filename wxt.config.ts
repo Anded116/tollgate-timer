@@ -3,7 +3,8 @@ import { defineConfig } from 'wxt';
 export default defineConfig({
   manifest: ({ browser }) => ({
     name: 'Tollgate Timer',
-    description: 'Динамический таймер входа на залипательные сайты: чем чаще заходишь, тем дольше ждёшь.',
+    description: '__MSG_extDescription__',
+    default_locale: 'en',
     permissions: ['storage', 'tabs', 'webNavigation'],
     icons: {
       16: '/icon/16.png',

@@ -1,6 +1,7 @@
 import { browser } from 'wxt/browser';
 import { delayFor, formatDuration, matchSite } from '../../utils/model';
 import { countToday, currentCount, getSessionTimes, getSettings, getTabSites, getVisits } from '../../utils/store';
+import { applyI18n, t } from '../../utils/i18n';
 
 async function renderStatus() {
   const settings = await getSettings();
@@ -24,8 +25,8 @@ async function renderStatus() {
 
   if (!site) {
     $status.classList.add('off');
-    title.textContent = `${host} — не в списке`;
-    why.textContent = 'Добавь домен в настройках и нажми «Сохранить».';
+    title.textContent = t('popupNotListed', host);
+    why.textContent = t('popupNotListedWhy');
   } else {
     title.textContent = `${host} → ${site}`;
     const now = Date.now();
@@ -37,14 +38,15 @@ async function renderStatus() {
       settings.sessionMaxMin * 60_000 - (now - sessionStart),
     );
     const delaySec = delayFor(await currentCount(site, settings, now), settings);
-    const nextEntry = delaySec > 0 ? `таймер ${formatDuration(delaySec)}` : 'без таймера (есть бесплатные заходы)';
+    const nextEntry =
+      delaySec > 0 ? t('popupPriceTimer', formatDuration(delaySec)) : t('popupPriceFree');
 
     if (thisTabOnSite) {
-      why.textContent = `Ты внутри сессии: навигация в этой вкладке свободна. Новый вход в другой вкладке — ${nextEntry}.`;
+      why.textContent = t('popupInSession', nextEntry);
     } else if (freeLeft > 0) {
-      why.textContent = `Возврат в сессию свободен ещё ${formatDuration(freeLeft / 1000)}, дальше — ${nextEntry}.`;
+      why.textContent = t('popupReturnFree', [formatDuration(freeLeft / 1000), nextEntry]);
     } else {
-      why.textContent = `Новый вход: ${nextEntry}.`;
+      why.textContent = t('popupNewEntry', nextEntry);
     }
   }
   $status.replaceChildren(title, why);
@@ -71,7 +73,7 @@ async function renderList() {
     stats.className = 'stats';
     const price = document.createElement('span');
     if (delaySec > 0) price.className = 'hot';
-    price.textContent = delaySec > 0 ? formatDuration(delaySec) : 'свободно';
+    price.textContent = delaySec > 0 ? formatDuration(delaySec) : t('listFree');
     stats.append(`${today} · `, price);
 
     li.append(domain, stats);
@@ -83,5 +85,6 @@ document.getElementById('open-options')!.addEventListener('click', () => {
   browser.runtime.openOptionsPage();
 });
 
+applyI18n();
 renderStatus();
 renderList();

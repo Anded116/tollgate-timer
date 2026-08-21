@@ -1,6 +1,9 @@
 import { browser } from 'wxt/browser';
 import { delayFor, formatDuration } from '../../utils/model';
+import { applyI18n, t } from '../../utils/i18n';
 import { currentCount, getSettings, getVisits, recordVisit, countToday } from '../../utils/store';
+
+applyI18n();
 
 const params = new URLSearchParams(location.search);
 const target = params.get('target') ?? '';
@@ -34,8 +37,8 @@ async function init() {
 
   const visits = await getVisits();
   const today = countToday(visits[site] ?? []) + 1;
-  const poolNote = settings.sharedPool ? ' (счётчик общий на все сайты)' : '';
-  $visitLine.textContent = `Это ${today}-й заход за сегодня${poolNote}. Уверен, что там есть что-то новое?`;
+  const poolNote = settings.sharedPool ? ' ' + t('gateSharedPool') : '';
+  $visitLine.textContent = t('gateVisitLine', String(today)) + poolNote;
 
   let acc = 0;
   let lastTick: number | null = null;

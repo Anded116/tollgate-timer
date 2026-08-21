@@ -1,0 +1,199 @@
+{
+  "extDescription": {
+    "message": "Rosnący licznik przed stronami pożerającymi czas: im częściej wchodzisz, tym dłużej czekasz."
+  },
+  "gateLeave": {
+    "message": "Zmieniam zdanie — zamknij kartę"
+  },
+  "gateEnter": {
+    "message": "Wejdź"
+  },
+  "gateHint": {
+    "message": "Okrąg wypełnia się tylko wtedy, gdy ta karta jest widoczna i aktywna."
+  },
+  "gatePaused": {
+    "message": "pauza — karta nieaktywna"
+  },
+  "gateVisitLine": {
+    "message": "Wejście nr $P1$ dzisiaj. Pewien, że jest tam coś nowego?",
+    "placeholders": {
+      "p1": {
+        "content": "$1"
+      }
+    }
+  },
+  "gateSharedPool": {
+    "message": "(licznik wspólny dla wszystkich stron)"
+  },
+  "unitSec": {
+    "message": "$P1$ s",
+    "placeholders": {
+      "p1": {
+        "content": "$1"
+      }
+    }
+  },
+  "popupSettings": {
+    "message": "Ustawienia"
+  },
+  "popupFootnote": {
+    "message": "Wejścia dzisiaj · aktualna cena wejścia"
+  },
+  "popupNotListed": {
+    "message": "$P1$ — nie ma na liście",
+    "placeholders": {
+      "p1": {
+        "content": "$1"
+      }
+    }
+  },
+  "popupNotListedWhy": {
+    "message": "Dodaj domenę w ustawieniach i naciśnij „Zapisz”."
+  },
+  "popupInSession": {
+    "message": "Jesteś w sesji: nawigacja w tej karcie jest wolna. Nowe wejście w innej karcie — $P1$.",
+    "placeholders": {
+      "p1": {
+        "content": "$1"
+      }
+    }
+  },
+  "popupReturnFree": {
+    "message": "Powrót do sesji jest wolny jeszcze $P1$, potem — $P2$.",
+    "placeholders": {
+      "p1": {
+        "content": "$1"
+      },
+      "p2": {
+        "content": "$2"
+      }
+    }
+  },
+  "popupNewEntry": {
+    "message": "Nowe wejście: $P1$.",
+    "placeholders": {
+      "p1": {
+        "content": "$1"
+      }
+    }
+  },
+  "popupPriceTimer": {
+    "message": "licznik $P1$",
+    "placeholders": {
+      "p1": {
+        "content": "$1"
+      }
+    }
+  },
+  "popupPriceFree": {
+    "message": "bez licznika (są darmowe wejścia)"
+  },
+  "listFree": {
+    "message": "wolne"
+  },
+  "optTitle": {
+    "message": "Tollgate Timer — ustawienia"
+  },
+  "optSub": {
+    "message": "Im częściej wchodzisz, tym dłużej czekasz. Licznik wejść zanika sam, bez dobowego zerowania."
+  },
+  "optPresetsHeading": {
+    "message": "Poziom surowości"
+  },
+  "presetSoft": {
+    "message": "Łagodny"
+  },
+  "presetMedium": {
+    "message": "Średni"
+  },
+  "presetHard": {
+    "message": "Surowy"
+  },
+  "optParamsHeading": {
+    "message": "Parametry licznika"
+  },
+  "optFreeVisits": {
+    "message": "Darmowe wejścia"
+  },
+  "optFreeVisitsHint": {
+    "message": "Tyle wejść z rzędu zupełnie bez licznika."
+  },
+  "optBaseSec": {
+    "message": "Bazowe opóźnienie, s"
+  },
+  "optBaseSecHint": {
+    "message": "Długość licznika przy pierwszym płatnym wejściu."
+  },
+  "optGrowth": {
+    "message": "Mnożnik wzrostu"
+  },
+  "optGrowthHint": {
+    "message": "Ile razy droższe jest każde kolejne wejście."
+  },
+  "optCap": {
+    "message": "Limit, min"
+  },
+  "optCapHint": {
+    "message": "Dłużej licznik nie rośnie. Nieskończony wzrost = blokada = zryw."
+  },
+  "optTau": {
+    "message": "Zanik licznika, godz."
+  },
+  "optTauHint": {
+    "message": "W tym czasie waga wejścia spada około 2,7×. Więcej = surowiej."
+  },
+  "optCooldown": {
+    "message": "Okno sesji, min"
+  },
+  "optCooldownHint": {
+    "message": "Powrót w tym czasie to nie nowe wejście."
+  },
+  "optSessionMax": {
+    "message": "Wiek sesji, min"
+  },
+  "optSessionMaxHint": {
+    "message": "Po tym czasie od początku sesji każdy powrót to nowe wejście — nawet szybki."
+  },
+  "optSharedPool": {
+    "message": "Wspólny licznik dla wszystkich stron (inaczej łatwo rotować: koniec Reddita — idziemy na YouTube)"
+  },
+  "optPreview": {
+    "message": "Cena kolejnych wejść — $P1$",
+    "placeholders": {
+      "p1": {
+        "content": "$1"
+      }
+    }
+  },
+  "optPreviewNow": {
+    "message": "od razu"
+  },
+  "optSitesHeading": {
+    "message": "Strony"
+  },
+  "optSitesNote": {
+    "message": "Jedna domena na linię, bez www. Subdomeny liczą się automatycznie (old.reddit.com → reddit.com)."
+  },
+  "optSave": {
+    "message": "Zapisz"
+  },
+  "optSaved": {
+    "message": "Zapisano · strony: $P1$",
+    "placeholders": {
+      "p1": {
+        "content": "$1"
+      }
+    }
+  },
+  "optSaveFailed": {
+    "message": "Nie zapisano: $P1$",
+    "placeholders": {
+      "p1": {
+        "content": "$1"
+      }
+    }
+  },
+  "optSitesNotStored": {
+    "message": "lista stron nie została zapisana"
+  }
+}

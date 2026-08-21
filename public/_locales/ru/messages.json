@@ -1,0 +1,199 @@
+{
+  "extDescription": {
+    "message": "Растущий таймер перед залипательными сайтами: чем чаще заходишь, тем дольше ждёшь."
+  },
+  "gateLeave": {
+    "message": "Передумал — закрыть вкладку"
+  },
+  "gateEnter": {
+    "message": "Войти"
+  },
+  "gateHint": {
+    "message": "Круг заполняется, только пока эта вкладка видима и в фокусе."
+  },
+  "gatePaused": {
+    "message": "пауза — вкладка не в фокусе"
+  },
+  "gateVisitLine": {
+    "message": "Заход №$P1$ за сегодня. Уверен, что там есть что-то новое?",
+    "placeholders": {
+      "p1": {
+        "content": "$1"
+      }
+    }
+  },
+  "gateSharedPool": {
+    "message": "(счётчик общий на все сайты)"
+  },
+  "unitSec": {
+    "message": "$P1$ сек",
+    "placeholders": {
+      "p1": {
+        "content": "$1"
+      }
+    }
+  },
+  "popupSettings": {
+    "message": "Настройки"
+  },
+  "popupFootnote": {
+    "message": "Заходы за сегодня · текущая цена входа"
+  },
+  "popupNotListed": {
+    "message": "$P1$ — не в списке",
+    "placeholders": {
+      "p1": {
+        "content": "$1"
+      }
+    }
+  },
+  "popupNotListedWhy": {
+    "message": "Добавь домен в настройках и нажми «Сохранить»."
+  },
+  "popupInSession": {
+    "message": "Ты внутри сессии: навигация в этой вкладке свободна. Новый вход в другой вкладке — $P1$.",
+    "placeholders": {
+      "p1": {
+        "content": "$1"
+      }
+    }
+  },
+  "popupReturnFree": {
+    "message": "Возврат в сессию свободен ещё $P1$, дальше — $P2$.",
+    "placeholders": {
+      "p1": {
+        "content": "$1"
+      },
+      "p2": {
+        "content": "$2"
+      }
+    }
+  },
+  "popupNewEntry": {
+    "message": "Новый вход: $P1$.",
+    "placeholders": {
+      "p1": {
+        "content": "$1"
+      }
+    }
+  },
+  "popupPriceTimer": {
+    "message": "таймер $P1$",
+    "placeholders": {
+      "p1": {
+        "content": "$1"
+      }
+    }
+  },
+  "popupPriceFree": {
+    "message": "без таймера (есть бесплатные заходы)"
+  },
+  "listFree": {
+    "message": "свободно"
+  },
+  "optTitle": {
+    "message": "Tollgate Timer — настройки"
+  },
+  "optSub": {
+    "message": "Чем чаще заходишь — тем дольше ждёшь. Счётчик заходов тает сам по себе, суточных сбросов нет."
+  },
+  "optPresetsHeading": {
+    "message": "Пресет строгости"
+  },
+  "presetSoft": {
+    "message": "Мягкий"
+  },
+  "presetMedium": {
+    "message": "Средний"
+  },
+  "presetHard": {
+    "message": "Жёсткий"
+  },
+  "optParamsHeading": {
+    "message": "Параметры таймера"
+  },
+  "optFreeVisits": {
+    "message": "Бесплатных заходов"
+  },
+  "optFreeVisitsHint": {
+    "message": "Столько заходов подряд — без таймера вообще."
+  },
+  "optBaseSec": {
+    "message": "Базовая задержка, сек"
+  },
+  "optBaseSecHint": {
+    "message": "Длина таймера на первом «платном» заходе."
+  },
+  "optGrowth": {
+    "message": "Множитель роста"
+  },
+  "optGrowthHint": {
+    "message": "Во сколько раз дорожает каждый следующий заход."
+  },
+  "optCap": {
+    "message": "Потолок, мин"
+  },
+  "optCapHint": {
+    "message": "Дольше этого таймер не растёт. Бесконечный рост = блокировка = срыв."
+  },
+  "optTau": {
+    "message": "Распад счётчика, ч"
+  },
+  "optTauHint": {
+    "message": "За это время «вес» захода падает в ~2,7 раза. Больше — строже."
+  },
+  "optCooldown": {
+    "message": "Окно сессии, мин"
+  },
+  "optCooldownHint": {
+    "message": "Вернулся на сайт в течение этого времени — это не новый заход."
+  },
+  "optSessionMax": {
+    "message": "Возраст сессии, мин"
+  },
+  "optSessionMaxHint": {
+    "message": "Спустя это время после начала сессии возврат — уже новый заход, даже быстрый."
+  },
+  "optSharedPool": {
+    "message": "Общий счётчик на все сайты (иначе легко ротировать: Реддит кончился — пошёл в Ютуб)"
+  },
+  "optPreview": {
+    "message": "Цена заходов подряд — $P1$",
+    "placeholders": {
+      "p1": {
+        "content": "$1"
+      }
+    }
+  },
+  "optPreviewNow": {
+    "message": "сразу"
+  },
+  "optSitesHeading": {
+    "message": "Сайты"
+  },
+  "optSitesNote": {
+    "message": "По одному домену на строку, без www. Поддомены считаются автоматически (old.reddit.com → reddit.com)."
+  },
+  "optSave": {
+    "message": "Сохранить"
+  },
+  "optSaved": {
+    "message": "Сохранено · сайтов: $P1$",
+    "placeholders": {
+      "p1": {
+        "content": "$1"
+      }
+    }
+  },
+  "optSaveFailed": {
+    "message": "Не сохранилось: $P1$",
+    "placeholders": {
+      "p1": {
+        "content": "$1"
+      }
+    }
+  },
+  "optSitesNotStored": {
+    "message": "список сайтов не сохранился"
+  }
+}

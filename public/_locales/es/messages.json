@@ -1,0 +1,199 @@
+{
+  "extDescription": {
+    "message": "Un temporizador creciente ante los sitios que te atrapan: cuanto más entras, más esperas."
+  },
+  "gateLeave": {
+    "message": "Cambié de idea — cerrar pestaña"
+  },
+  "gateEnter": {
+    "message": "Entrar"
+  },
+  "gateHint": {
+    "message": "El círculo solo se llena mientras esta pestaña está visible y activa."
+  },
+  "gatePaused": {
+    "message": "en pausa — pestaña sin foco"
+  },
+  "gateVisitLine": {
+    "message": "Visita n.º $P1$ de hoy. ¿Seguro que hay algo nuevo?",
+    "placeholders": {
+      "p1": {
+        "content": "$1"
+      }
+    }
+  },
+  "gateSharedPool": {
+    "message": "(contador común para todos los sitios)"
+  },
+  "unitSec": {
+    "message": "$P1$ s",
+    "placeholders": {
+      "p1": {
+        "content": "$1"
+      }
+    }
+  },
+  "popupSettings": {
+    "message": "Ajustes"
+  },
+  "popupFootnote": {
+    "message": "Visitas de hoy · precio actual de entrada"
+  },
+  "popupNotListed": {
+    "message": "$P1$ — no está en la lista",
+    "placeholders": {
+      "p1": {
+        "content": "$1"
+      }
+    }
+  },
+  "popupNotListedWhy": {
+    "message": "Añade el dominio en los ajustes y pulsa «Guardar»."
+  },
+  "popupInSession": {
+    "message": "Estás dentro de una sesión: navegar en esta pestaña es libre. Una nueva entrada en otra pestaña — $P1$.",
+    "placeholders": {
+      "p1": {
+        "content": "$1"
+      }
+    }
+  },
+  "popupReturnFree": {
+    "message": "Volver a la sesión es libre durante $P1$ más, después — $P2$.",
+    "placeholders": {
+      "p1": {
+        "content": "$1"
+      },
+      "p2": {
+        "content": "$2"
+      }
+    }
+  },
+  "popupNewEntry": {
+    "message": "Nueva entrada: $P1$.",
+    "placeholders": {
+      "p1": {
+        "content": "$1"
+      }
+    }
+  },
+  "popupPriceTimer": {
+    "message": "temporizador $P1$",
+    "placeholders": {
+      "p1": {
+        "content": "$1"
+      }
+    }
+  },
+  "popupPriceFree": {
+    "message": "sin temporizador (quedan visitas gratis)"
+  },
+  "listFree": {
+    "message": "libre"
+  },
+  "optTitle": {
+    "message": "Tollgate Timer — ajustes"
+  },
+  "optSub": {
+    "message": "Cuanto más entras, más esperas. El contador de visitas decae por sí solo; no hay reinicio diario."
+  },
+  "optPresetsHeading": {
+    "message": "Ajuste de severidad"
+  },
+  "presetSoft": {
+    "message": "Suave"
+  },
+  "presetMedium": {
+    "message": "Medio"
+  },
+  "presetHard": {
+    "message": "Estricto"
+  },
+  "optParamsHeading": {
+    "message": "Parámetros del temporizador"
+  },
+  "optFreeVisits": {
+    "message": "Visitas gratis"
+  },
+  "optFreeVisitsHint": {
+    "message": "Tantas visitas seguidas sin temporizador alguno."
+  },
+  "optBaseSec": {
+    "message": "Retardo base, s"
+  },
+  "optBaseSecHint": {
+    "message": "Duración del temporizador en la primera visita de pago."
+  },
+  "optGrowth": {
+    "message": "Multiplicador de crecimiento"
+  },
+  "optGrowthHint": {
+    "message": "Cuánto más cara resulta cada visita siguiente."
+  },
+  "optCap": {
+    "message": "Techo, min"
+  },
+  "optCapHint": {
+    "message": "El temporizador no crece más allá de esto. Crecimiento infinito = bloqueo = recaída."
+  },
+  "optTau": {
+    "message": "Decaimiento del contador, h"
+  },
+  "optTauHint": {
+    "message": "El peso de una visita cae unas 2,7× en este tiempo. Más alto = más estricto."
+  },
+  "optCooldown": {
+    "message": "Ventana de sesión, min"
+  },
+  "optCooldownHint": {
+    "message": "Volver dentro de este tiempo no cuenta como nueva visita."
+  },
+  "optSessionMax": {
+    "message": "Edad de la sesión, min"
+  },
+  "optSessionMaxHint": {
+    "message": "Pasado este tiempo desde el inicio de la sesión, volver es una visita nueva, aunque sea rápida."
+  },
+  "optSharedPool": {
+    "message": "Contador común para todos los sitios (si no, rotar es fácil: se acabó Reddit, vamos a YouTube)"
+  },
+  "optPreview": {
+    "message": "Precio de visitas consecutivas — $P1$",
+    "placeholders": {
+      "p1": {
+        "content": "$1"
+      }
+    }
+  },
+  "optPreviewNow": {
+    "message": "al instante"
+  },
+  "optSitesHeading": {
+    "message": "Sitios"
+  },
+  "optSitesNote": {
+    "message": "Un dominio por línea, sin www. Los subdominios cuentan automáticamente (old.reddit.com → reddit.com)."
+  },
+  "optSave": {
+    "message": "Guardar"
+  },
+  "optSaved": {
+    "message": "Guardado · sitios: $P1$",
+    "placeholders": {
+      "p1": {
+        "content": "$1"
+      }
+    }
+  },
+  "optSaveFailed": {
+    "message": "No se guardó: $P1$",
+    "placeholders": {
+      "p1": {
+        "content": "$1"
+      }
+    }
+  },
+  "optSitesNotStored": {
+    "message": "la lista de sitios no se guardó"
+  }
+}

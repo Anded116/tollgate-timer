@@ -1,5 +1,6 @@
 import { delayFor, formatDuration, normalizeSite, PRESETS, type Settings } from '../../utils/model';
 import { getSettings, saveSettings } from '../../utils/store';
+import { applyI18n, t } from '../../utils/i18n';
 
 const NUM_FIELDS = ['freeVisits', 'baseSec', 'growth', 'capMin', 'tauHours', 'cooldownMin', 'sessionMaxMin'] as const;
 type NumField = (typeof NUM_FIELDS)[number];
@@ -51,18 +52,20 @@ function updatePreview(s: Settings) {
   const points = [1, 3, 5, 7, 10]
     .map((n) => {
       const d = delayFor(n - 1, s);
-      return `${n}-й: ${d > 0 ? formatDuration(d) : 'сразу'}`;
+      return `#${n}: ${d > 0 ? formatDuration(d) : t('optPreviewNow')}`;
     })
     .join(' · ');
-  $preview.textContent = `Цена заходов подряд — ${points}`;
+  $preview.textContent = t('optPreview', points);
 }
 
 async function init() {
+  applyI18n();
+  document.title = t('optTitle');
   let settings = await getSettings();
 
   for (const p of PRESETS) {
     const btn = document.createElement('button');
-    btn.textContent = p.label;
+    btn.textContent = t(p.labelKey);
     btn.dataset.key = p.key;
     btn.addEventListener('click', () => {
       const current = readForm(settings);
@@ -86,15 +89,15 @@ async function init() {
       await saveSettings(next);
       const stored = await getSettings();
       if (stored.sites.join(',') !== next.sites.join(',')) {
-        throw new Error('список сайтов не сохранился');
+        throw new Error(t('optSitesNotStored'));
       }
       settings = stored;
       fillForm(settings);
       $status.classList.remove('error');
-      $status.textContent = `Сохранено · сайтов: ${settings.sites.length}`;
+      $status.textContent = t('optSaved', String(settings.sites.length));
     } catch (e) {
       $status.classList.add('error');
-      $status.textContent = `Не сохранилось: ${e instanceof Error ? e.message : String(e)}`;
+      $status.textContent = t('optSaveFailed', e instanceof Error ? e.message : String(e));
     }
   });
 }

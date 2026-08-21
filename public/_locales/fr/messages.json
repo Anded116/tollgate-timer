@@ -1,0 +1,199 @@
+{
+  "extDescription": {
+    "message": "Un minuteur croissant devant les sites chronophages : plus vous y allez souvent, plus vous attendez."
+  },
+  "gateLeave": {
+    "message": "J'ai changé d'avis — fermer l'onglet"
+  },
+  "gateEnter": {
+    "message": "Entrer"
+  },
+  "gateHint": {
+    "message": "Le cercle ne se remplit que si cet onglet est visible et actif."
+  },
+  "gatePaused": {
+    "message": "en pause — onglet inactif"
+  },
+  "gateVisitLine": {
+    "message": "Visite n° $P1$ aujourd’hui. Sûr qu’il y a du nouveau ?",
+    "placeholders": {
+      "p1": {
+        "content": "$1"
+      }
+    }
+  },
+  "gateSharedPool": {
+    "message": "(compteur commun à tous les sites)"
+  },
+  "unitSec": {
+    "message": "$P1$ s",
+    "placeholders": {
+      "p1": {
+        "content": "$1"
+      }
+    }
+  },
+  "popupSettings": {
+    "message": "Réglages"
+  },
+  "popupFootnote": {
+    "message": "Visites aujourd’hui · prix actuel de l’entrée"
+  },
+  "popupNotListed": {
+    "message": "$P1$ — absent de la liste",
+    "placeholders": {
+      "p1": {
+        "content": "$1"
+      }
+    }
+  },
+  "popupNotListedWhy": {
+    "message": "Ajoutez le domaine dans les réglages puis cliquez sur « Enregistrer »."
+  },
+  "popupInSession": {
+    "message": "Vous êtes dans une session : la navigation dans cet onglet est libre. Une nouvelle entrée dans un autre onglet — $P1$.",
+    "placeholders": {
+      "p1": {
+        "content": "$1"
+      }
+    }
+  },
+  "popupReturnFree": {
+    "message": "Le retour dans la session est libre encore $P1$, ensuite — $P2$.",
+    "placeholders": {
+      "p1": {
+        "content": "$1"
+      },
+      "p2": {
+        "content": "$2"
+      }
+    }
+  },
+  "popupNewEntry": {
+    "message": "Nouvelle entrée : $P1$.",
+    "placeholders": {
+      "p1": {
+        "content": "$1"
+      }
+    }
+  },
+  "popupPriceTimer": {
+    "message": "minuteur $P1$",
+    "placeholders": {
+      "p1": {
+        "content": "$1"
+      }
+    }
+  },
+  "popupPriceFree": {
+    "message": "sans minuteur (visites gratuites restantes)"
+  },
+  "listFree": {
+    "message": "libre"
+  },
+  "optTitle": {
+    "message": "Tollgate Timer — réglages"
+  },
+  "optSub": {
+    "message": "Plus vous venez souvent, plus vous attendez. Le compteur de visites décroît tout seul, sans remise à zéro quotidienne."
+  },
+  "optPresetsHeading": {
+    "message": "Préréglage de sévérité"
+  },
+  "presetSoft": {
+    "message": "Doux"
+  },
+  "presetMedium": {
+    "message": "Moyen"
+  },
+  "presetHard": {
+    "message": "Strict"
+  },
+  "optParamsHeading": {
+    "message": "Paramètres du minuteur"
+  },
+  "optFreeVisits": {
+    "message": "Visites gratuites"
+  },
+  "optFreeVisitsHint": {
+    "message": "Autant de visites d’affilée sans aucun minuteur."
+  },
+  "optBaseSec": {
+    "message": "Délai de base, s"
+  },
+  "optBaseSecHint": {
+    "message": "Durée du minuteur à la première visite payante."
+  },
+  "optGrowth": {
+    "message": "Multiplicateur de croissance"
+  },
+  "optGrowthHint": {
+    "message": "Dans quelle mesure chaque visite suivante coûte plus cher."
+  },
+  "optCap": {
+    "message": "Plafond, min"
+  },
+  "optCapHint": {
+    "message": "Le minuteur ne dépasse pas cette durée. Croissance infinie = blocage = rechute."
+  },
+  "optTau": {
+    "message": "Décroissance du compteur, h"
+  },
+  "optTauHint": {
+    "message": "Le poids d’une visite diminue d’environ 2,7× sur cette durée. Plus haut = plus strict."
+  },
+  "optCooldown": {
+    "message": "Fenêtre de session, min"
+  },
+  "optCooldownHint": {
+    "message": "Revenir dans ce délai ne compte pas comme une nouvelle visite."
+  },
+  "optSessionMax": {
+    "message": "Âge de la session, min"
+  },
+  "optSessionMaxHint": {
+    "message": "Passé ce délai depuis le début de la session, tout retour est une nouvelle visite, même rapide."
+  },
+  "optSharedPool": {
+    "message": "Compteur commun à tous les sites (sinon la rotation est facile : Reddit épuisé, direction YouTube)"
+  },
+  "optPreview": {
+    "message": "Prix des visites consécutives — $P1$",
+    "placeholders": {
+      "p1": {
+        "content": "$1"
+      }
+    }
+  },
+  "optPreviewNow": {
+    "message": "immédiat"
+  },
+  "optSitesHeading": {
+    "message": "Sites"
+  },
+  "optSitesNote": {
+    "message": "Un domaine par ligne, sans www. Les sous-domaines comptent automatiquement (old.reddit.com → reddit.com)."
+  },
+  "optSave": {
+    "message": "Enregistrer"
+  },
+  "optSaved": {
+    "message": "Enregistré · sites : $P1$",
+    "placeholders": {
+      "p1": {
+        "content": "$1"
+      }
+    }
+  },
+  "optSaveFailed": {
+    "message": "Non enregistré : $P1$",
+    "placeholders": {
+      "p1": {
+        "content": "$1"
+      }
+    }
+  },
+  "optSitesNotStored": {
+    "message": "la liste des sites n’a pas été enregistrée"
+  }
+}

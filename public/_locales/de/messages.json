@@ -1,0 +1,199 @@
+{
+  "extDescription": {
+    "message": "Ein wachsender Timer vor zeitfressenden Seiten: je häufiger du sie öffnest, desto länger wartest du."
+  },
+  "gateLeave": {
+    "message": "Anders entschieden — Tab schließen"
+  },
+  "gateEnter": {
+    "message": "Betreten"
+  },
+  "gateHint": {
+    "message": "Der Kreis füllt sich nur, solange dieser Tab sichtbar und im Fokus ist."
+  },
+  "gatePaused": {
+    "message": "pausiert — Tab nicht im Fokus"
+  },
+  "gateVisitLine": {
+    "message": "Besuch Nr. $P1$ heute. Sicher, dass es dort etwas Neues gibt?",
+    "placeholders": {
+      "p1": {
+        "content": "$1"
+      }
+    }
+  },
+  "gateSharedPool": {
+    "message": "(Zähler für alle Seiten gemeinsam)"
+  },
+  "unitSec": {
+    "message": "$P1$ Sek.",
+    "placeholders": {
+      "p1": {
+        "content": "$1"
+      }
+    }
+  },
+  "popupSettings": {
+    "message": "Einstellungen"
+  },
+  "popupFootnote": {
+    "message": "Besuche heute · aktueller Preis für den Eintritt"
+  },
+  "popupNotListed": {
+    "message": "$P1$ — nicht in der Liste",
+    "placeholders": {
+      "p1": {
+        "content": "$1"
+      }
+    }
+  },
+  "popupNotListedWhy": {
+    "message": "Domain in den Einstellungen hinzufügen und „Speichern“ drücken."
+  },
+  "popupInSession": {
+    "message": "Du bist in einer Sitzung: Navigation in diesem Tab ist frei. Ein neuer Eintritt in einem anderen Tab — $P1$.",
+    "placeholders": {
+      "p1": {
+        "content": "$1"
+      }
+    }
+  },
+  "popupReturnFree": {
+    "message": "Die Rückkehr in die Sitzung ist noch $P1$ frei, danach — $P2$.",
+    "placeholders": {
+      "p1": {
+        "content": "$1"
+      },
+      "p2": {
+        "content": "$2"
+      }
+    }
+  },
+  "popupNewEntry": {
+    "message": "Neuer Eintritt: $P1$.",
+    "placeholders": {
+      "p1": {
+        "content": "$1"
+      }
+    }
+  },
+  "popupPriceTimer": {
+    "message": "Timer $P1$",
+    "placeholders": {
+      "p1": {
+        "content": "$1"
+      }
+    }
+  },
+  "popupPriceFree": {
+    "message": "kein Timer (Freibesuche übrig)"
+  },
+  "listFree": {
+    "message": "frei"
+  },
+  "optTitle": {
+    "message": "Tollgate Timer — Einstellungen"
+  },
+  "optSub": {
+    "message": "Je häufiger du kommst, desto länger wartest du. Der Besuchszähler klingt von selbst ab, es gibt keinen täglichen Reset."
+  },
+  "optPresetsHeading": {
+    "message": "Strenge-Voreinstellung"
+  },
+  "presetSoft": {
+    "message": "Sanft"
+  },
+  "presetMedium": {
+    "message": "Mittel"
+  },
+  "presetHard": {
+    "message": "Streng"
+  },
+  "optParamsHeading": {
+    "message": "Timer-Parameter"
+  },
+  "optFreeVisits": {
+    "message": "Freibesuche"
+  },
+  "optFreeVisitsHint": {
+    "message": "So viele Besuche in Folge ganz ohne Timer."
+  },
+  "optBaseSec": {
+    "message": "Basisverzögerung, Sek."
+  },
+  "optBaseSecHint": {
+    "message": "Timer-Länge beim ersten kostenpflichtigen Besuch."
+  },
+  "optGrowth": {
+    "message": "Wachstumsfaktor"
+  },
+  "optGrowthHint": {
+    "message": "Um welchen Faktor jeder weitere Besuch teurer wird."
+  },
+  "optCap": {
+    "message": "Obergrenze, Min."
+  },
+  "optCapHint": {
+    "message": "Länger wird der Timer nicht. Endloses Wachstum = Sperre = Rückfall."
+  },
+  "optTau": {
+    "message": "Zähler-Abbau, Std."
+  },
+  "optTauHint": {
+    "message": "In dieser Zeit sinkt das Gewicht eines Besuchs um etwa das 2,7-Fache. Höher = strenger."
+  },
+  "optCooldown": {
+    "message": "Sitzungsfenster, Min."
+  },
+  "optCooldownHint": {
+    "message": "Eine Rückkehr innerhalb dieser Zeit ist kein neuer Besuch."
+  },
+  "optSessionMax": {
+    "message": "Sitzungsalter, Min."
+  },
+  "optSessionMaxHint": {
+    "message": "So lange nach Sitzungsbeginn gilt jede Rückkehr als neuer Besuch — auch eine schnelle."
+  },
+  "optSharedPool": {
+    "message": "Gemeinsamer Zähler für alle Seiten (sonst rotiert man leicht: Reddit durch, weiter zu YouTube)"
+  },
+  "optPreview": {
+    "message": "Preis aufeinanderfolgender Besuche — $P1$",
+    "placeholders": {
+      "p1": {
+        "content": "$1"
+      }
+    }
+  },
+  "optPreviewNow": {
+    "message": "sofort"
+  },
+  "optSitesHeading": {
+    "message": "Seiten"
+  },
+  "optSitesNote": {
+    "message": "Eine Domain pro Zeile, ohne www. Subdomains zählen automatisch (old.reddit.com → reddit.com)."
+  },
+  "optSave": {
+    "message": "Speichern"
+  },
+  "optSaved": {
+    "message": "Gespeichert · Seiten: $P1$",
+    "placeholders": {
+      "p1": {
+        "content": "$1"
+      }
+    }
+  },
+  "optSaveFailed": {
+    "message": "Nicht gespeichert: $P1$",
+    "placeholders": {
+      "p1": {
+        "content": "$1"
+      }
+    }
+  },
+  "optSitesNotStored": {
+    "message": "die Seitenliste wurde nicht gespeichert"
+  }
+}

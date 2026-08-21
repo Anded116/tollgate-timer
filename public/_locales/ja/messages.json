@@ -1,0 +1,199 @@
+{
+  "extDescription": {
+    "message": "時間を奪うサイトの前に置く、だんだん長くなるタイマー。訪問が増えるほど待ち時間が伸びます。"
+  },
+  "gateLeave": {
+    "message": "やめる — タブを閉じる"
+  },
+  "gateEnter": {
+    "message": "入る"
+  },
+  "gateHint": {
+    "message": "このタブが表示され、フォーカスされている間だけ円が満たされます。"
+  },
+  "gatePaused": {
+    "message": "一時停止 — タブが非アクティブ"
+  },
+  "gateVisitLine": {
+    "message": "本日 $P1$ 回目の訪問です。本当に新しい何かがありますか？",
+    "placeholders": {
+      "p1": {
+        "content": "$1"
+      }
+    }
+  },
+  "gateSharedPool": {
+    "message": "（カウンターは全サイト共通）"
+  },
+  "unitSec": {
+    "message": "$P1$ 秒",
+    "placeholders": {
+      "p1": {
+        "content": "$1"
+      }
+    }
+  },
+  "popupSettings": {
+    "message": "設定"
+  },
+  "popupFootnote": {
+    "message": "本日の訪問回数 · 現在の入場料"
+  },
+  "popupNotListed": {
+    "message": "$P1$ — リストにありません",
+    "placeholders": {
+      "p1": {
+        "content": "$1"
+      }
+    }
+  },
+  "popupNotListedWhy": {
+    "message": "設定でドメインを追加し、「保存」を押してください。"
+  },
+  "popupInSession": {
+    "message": "セッション中です。このタブ内の移動は無料。別のタブで新たに入る場合は $P1$。",
+    "placeholders": {
+      "p1": {
+        "content": "$1"
+      }
+    }
+  },
+  "popupReturnFree": {
+    "message": "セッションへの復帰はあと $P1$ は無料、その後は $P2$。",
+    "placeholders": {
+      "p1": {
+        "content": "$1"
+      },
+      "p2": {
+        "content": "$2"
+      }
+    }
+  },
+  "popupNewEntry": {
+    "message": "新しい入場: $P1$。",
+    "placeholders": {
+      "p1": {
+        "content": "$1"
+      }
+    }
+  },
+  "popupPriceTimer": {
+    "message": "タイマー $P1$",
+    "placeholders": {
+      "p1": {
+        "content": "$1"
+      }
+    }
+  },
+  "popupPriceFree": {
+    "message": "タイマーなし（無料の訪問が残っています）"
+  },
+  "listFree": {
+    "message": "無料"
+  },
+  "optTitle": {
+    "message": "Tollgate Timer — 設定"
+  },
+  "optSub": {
+    "message": "訪問が増えるほど待ち時間が伸びます。訪問カウンターは自然に減衰し、日次リセットはありません。"
+  },
+  "optPresetsHeading": {
+    "message": "厳しさのプリセット"
+  },
+  "presetSoft": {
+    "message": "ゆるめ"
+  },
+  "presetMedium": {
+    "message": "ふつう"
+  },
+  "presetHard": {
+    "message": "きびしめ"
+  },
+  "optParamsHeading": {
+    "message": "タイマーの設定値"
+  },
+  "optFreeVisits": {
+    "message": "無料の訪問回数"
+  },
+  "optFreeVisitsHint": {
+    "message": "この回数まではタイマーなしで入れます。"
+  },
+  "optBaseSec": {
+    "message": "基本の待ち時間（秒）"
+  },
+  "optBaseSecHint": {
+    "message": "最初の「有料」訪問でのタイマーの長さ。"
+  },
+  "optGrowth": {
+    "message": "増加倍率"
+  },
+  "optGrowthHint": {
+    "message": "次の訪問ごとに何倍高くなるか。"
+  },
+  "optCap": {
+    "message": "上限（分）"
+  },
+  "optCapHint": {
+    "message": "これ以上タイマーは伸びません。無制限に伸ばすとブロックと同じで、反動が起きます。"
+  },
+  "optTau": {
+    "message": "カウンターの減衰（時間）"
+  },
+  "optTauHint": {
+    "message": "この時間で訪問の「重み」が約2.7分の1になります。長くするほど厳しくなります。"
+  },
+  "optCooldown": {
+    "message": "セッションの猶予（分）"
+  },
+  "optCooldownHint": {
+    "message": "この時間内に戻る場合は新しい訪問として数えません。"
+  },
+  "optSessionMax": {
+    "message": "セッションの有効時間（分）"
+  },
+  "optSessionMaxHint": {
+    "message": "セッション開始からこの時間が過ぎると、すぐ戻っても新しい訪問になります。"
+  },
+  "optSharedPool": {
+    "message": "全サイトで共通のカウンター（そうしないとサイトを渡り歩けます。Redditが尽きたらYouTubeへ）"
+  },
+  "optPreview": {
+    "message": "連続訪問の料金 — $P1$",
+    "placeholders": {
+      "p1": {
+        "content": "$1"
+      }
+    }
+  },
+  "optPreviewNow": {
+    "message": "すぐ"
+  },
+  "optSitesHeading": {
+    "message": "サイト"
+  },
+  "optSitesNote": {
+    "message": "1行に1ドメイン、wwwは不要。サブドメインは自動で対象になります（old.reddit.com → reddit.com）。"
+  },
+  "optSave": {
+    "message": "保存"
+  },
+  "optSaved": {
+    "message": "保存しました · サイト数: $P1$",
+    "placeholders": {
+      "p1": {
+        "content": "$1"
+      }
+    }
+  },
+  "optSaveFailed": {
+    "message": "保存できませんでした: $P1$",
+    "placeholders": {
+      "p1": {
+        "content": "$1"
+      }
+    }
+  },
+  "optSitesNotStored": {
+    "message": "サイト一覧が保存されませんでした"
+  }
+}

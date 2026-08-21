@@ -57,6 +57,9 @@ Tollgate Timer не блокирует сайты — он ставит пере
 
 **Теги:** focus, productivity, timer, distraction
 
+**Языки интерфейса** (AMO показывает их в листинге): en, ru, de, fr, es, it, pl,
+pt-BR, ja. Описание аддона в `about:addons` тоже локализовано.
+
 ## Ответы про данные (AMO спрашивает при загрузке)
 
 - Персональные данные не собираются, не передаются и не продаются.
@@ -73,6 +76,46 @@ Tollgate Timer не блокирует сайты — он ставит пере
 - `storage` — локальное хранение настроек и таймстемпов заходов.
 - Host permissions не запрашиваются: контент-скриптов нет, страницы не читаются
   и не изменяются.
+
+## Notes to Reviewer (вставить как есть)
+
+```
+WHAT IT DOES
+Delays entry to user-listed websites with a timer whose length grows with visit
+frequency. No content scripts, no page modification, no network requests.
+
+PERMISSIONS
+- webNavigation: detect navigation to a listed site and redirect the tab to the
+  extension's own page (gate.html) before the site loads.
+- tabs: read tab URLs to tell "entering the site" from "navigating inside it",
+  and tabs.update to show that page.
+- storage: keep settings and visit timestamps locally (storage.local).
+No host permissions are requested.
+
+HOW TO TEST (fastest path)
+1. Open the add-on's options page.
+2. Set "Free visits" to 0 and press "Save" — the confirmation next to the button
+   must turn green.
+3. Close any existing reddit.com tabs, then open https://reddit.com in a new tab:
+   the timer page appears instead of the site.
+4. The circle advances only while the tab is focused — switch to another tab and
+   back to see it pause and resume.
+5. When it completes, "Enter" becomes active and loads the site; "Changed my mind"
+   closes the tab.
+Note: navigation is intentionally free while the site is already open in the same tab.
+
+BUILD INSTRUCTIONS (source archive provided)
+The uploaded package is bundled and minified by WXT (Vite). To reproduce:
+  Node.js 22 or newer (built with 23.6.0), npm 11
+  npm ci
+  npm run build:firefox
+The result appears in .output/firefox-mv2/ and matches the uploaded package.
+Source archive: tollgate-timer-1.0.0-sources.zip (includes package-lock.json).
+
+LOCALIZATION
+UI strings live in _locales/<locale>/messages.json (en, ru, de, fr, es, it, pl,
+pt_BR, ja); the interface follows the browser language, English is the default.
+```
 
 ## Порядок публикации на AMO
 

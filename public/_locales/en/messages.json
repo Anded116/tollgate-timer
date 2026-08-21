@@ -1,0 +1,199 @@
+{
+  "extDescription": {
+    "message": "A growing timer in front of time-sink sites: the more often you visit, the longer you wait."
+  },
+  "gateLeave": {
+    "message": "Changed my mind — close tab"
+  },
+  "gateEnter": {
+    "message": "Enter"
+  },
+  "gateHint": {
+    "message": "The circle only fills while this tab is visible and focused."
+  },
+  "gatePaused": {
+    "message": "paused — tab is not focused"
+  },
+  "gateVisitLine": {
+    "message": "Visit $P1$ today. Sure there is something new in there?",
+    "placeholders": {
+      "p1": {
+        "content": "$1"
+      }
+    }
+  },
+  "gateSharedPool": {
+    "message": "(counter shared across all sites)"
+  },
+  "unitSec": {
+    "message": "$P1$ sec",
+    "placeholders": {
+      "p1": {
+        "content": "$1"
+      }
+    }
+  },
+  "popupSettings": {
+    "message": "Settings"
+  },
+  "popupFootnote": {
+    "message": "Visits today · current price of entry"
+  },
+  "popupNotListed": {
+    "message": "$P1$ — not in the list",
+    "placeholders": {
+      "p1": {
+        "content": "$1"
+      }
+    }
+  },
+  "popupNotListedWhy": {
+    "message": "Add the domain in settings and press Save."
+  },
+  "popupInSession": {
+    "message": "You are inside a session: navigation in this tab is free. A new entry in another tab — $P1$.",
+    "placeholders": {
+      "p1": {
+        "content": "$1"
+      }
+    }
+  },
+  "popupReturnFree": {
+    "message": "Returning to the session is free for another $P1$, after that — $P2$.",
+    "placeholders": {
+      "p1": {
+        "content": "$1"
+      },
+      "p2": {
+        "content": "$2"
+      }
+    }
+  },
+  "popupNewEntry": {
+    "message": "New entry: $P1$.",
+    "placeholders": {
+      "p1": {
+        "content": "$1"
+      }
+    }
+  },
+  "popupPriceTimer": {
+    "message": "timer $P1$",
+    "placeholders": {
+      "p1": {
+        "content": "$1"
+      }
+    }
+  },
+  "popupPriceFree": {
+    "message": "no timer (free visits left)"
+  },
+  "listFree": {
+    "message": "free"
+  },
+  "optTitle": {
+    "message": "Tollgate Timer — settings"
+  },
+  "optSub": {
+    "message": "The more often you visit, the longer you wait. The visit counter decays on its own; there is no daily reset."
+  },
+  "optPresetsHeading": {
+    "message": "Strictness preset"
+  },
+  "presetSoft": {
+    "message": "Soft"
+  },
+  "presetMedium": {
+    "message": "Medium"
+  },
+  "presetHard": {
+    "message": "Hard"
+  },
+  "optParamsHeading": {
+    "message": "Timer parameters"
+  },
+  "optFreeVisits": {
+    "message": "Free visits"
+  },
+  "optFreeVisitsHint": {
+    "message": "This many visits in a row with no timer at all."
+  },
+  "optBaseSec": {
+    "message": "Base delay, sec"
+  },
+  "optBaseSecHint": {
+    "message": "Timer length on the first paid visit."
+  },
+  "optGrowth": {
+    "message": "Growth multiplier"
+  },
+  "optGrowthHint": {
+    "message": "How much more expensive each next visit gets."
+  },
+  "optCap": {
+    "message": "Ceiling, min"
+  },
+  "optCapHint": {
+    "message": "The timer never grows beyond this. Endless growth = a block = a relapse."
+  },
+  "optTau": {
+    "message": "Counter decay, h"
+  },
+  "optTauHint": {
+    "message": "A visit’s weight drops about 2.7× over this time. Higher = stricter."
+  },
+  "optCooldown": {
+    "message": "Session window, min"
+  },
+  "optCooldownHint": {
+    "message": "Coming back within this time is not a new visit."
+  },
+  "optSessionMax": {
+    "message": "Session age, min"
+  },
+  "optSessionMaxHint": {
+    "message": "After this long since the session started, coming back is a new visit — even a quick one."
+  },
+  "optSharedPool": {
+    "message": "Shared counter for all sites (otherwise rotating is easy: Reddit is done, off to YouTube)"
+  },
+  "optPreview": {
+    "message": "Price of consecutive visits — $P1$",
+    "placeholders": {
+      "p1": {
+        "content": "$1"
+      }
+    }
+  },
+  "optPreviewNow": {
+    "message": "right away"
+  },
+  "optSitesHeading": {
+    "message": "Sites"
+  },
+  "optSitesNote": {
+    "message": "One domain per line, without www. Subdomains count automatically (old.reddit.com → reddit.com)."
+  },
+  "optSave": {
+    "message": "Save"
+  },
+  "optSaved": {
+    "message": "Saved · sites: $P1$",
+    "placeholders": {
+      "p1": {
+        "content": "$1"
+      }
+    }
+  },
+  "optSaveFailed": {
+    "message": "Not saved: $P1$",
+    "placeholders": {
+      "p1": {
+        "content": "$1"
+      }
+    }
+  },
+  "optSitesNotStored": {
+    "message": "the site list was not saved"
+  }
+}

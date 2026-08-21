@@ -1,75 +1,75 @@
 <!doctype html>
-<html lang="ru">
+<html lang="en">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Tollgate Timer — настройки</title>
+    <title>Tollgate Timer</title>
     <link rel="stylesheet" href="./style.css" />
   </head>
   <body>
     <main class="wrap">
       <h1>Tollgate</h1>
-      <p class="sub">Чем чаще заходишь — тем дольше ждёшь. Счётчик заходов тает сам по себе, суточных сбросов нет.</p>
+      <p class="sub" data-i18n="optSub"></p>
 
       <section>
-        <h2>Пресет строгости</h2>
+        <h2 data-i18n="optPresetsHeading"></h2>
         <div class="presets" id="presets"></div>
       </section>
 
       <section>
-        <h2>Параметры таймера</h2>
+        <h2 data-i18n="optParamsHeading"></h2>
         <div class="grid">
           <label>
-            Бесплатных заходов
+            <span data-i18n="optFreeVisits"></span>
             <input type="number" id="freeVisits" min="0" max="20" step="1" />
-            <small>Столько заходов подряд — без таймера вообще.</small>
+            <small data-i18n="optFreeVisitsHint"></small>
           </label>
           <label>
-            Базовая задержка, сек
+            <span data-i18n="optBaseSec"></span>
             <input type="number" id="baseSec" min="1" max="600" step="1" />
-            <small>Длина таймера на первом «платном» заходе.</small>
+            <small data-i18n="optBaseSecHint"></small>
           </label>
           <label>
-            Множитель роста
+            <span data-i18n="optGrowth"></span>
             <input type="number" id="growth" min="1.05" max="4" step="0.05" />
-            <small>Во сколько раз дорожает каждый следующий заход.</small>
+            <small data-i18n="optGrowthHint"></small>
           </label>
           <label>
-            Потолок, мин
+            <span data-i18n="optCap"></span>
             <input type="number" id="capMin" min="1" max="120" step="1" />
-            <small>Дольше этого таймер не растёт. Бесконечный рост = блокировка = срыв.</small>
+            <small data-i18n="optCapHint"></small>
           </label>
           <label>
-            Распад счётчика, ч
+            <span data-i18n="optTau"></span>
             <input type="number" id="tauHours" min="1" max="48" step="0.5" />
-            <small>За это время «вес» захода падает в ~2.7 раза. Больше — строже.</small>
+            <small data-i18n="optTauHint"></small>
           </label>
           <label>
-            Окно сессии, мин
+            <span data-i18n="optCooldown"></span>
             <input type="number" id="cooldownMin" min="1" max="60" step="1" />
-            <small>Вернулся на сайт в течение этого времени — это не новый заход.</small>
+            <small data-i18n="optCooldownHint"></small>
           </label>
           <label>
-            Возраст сессии, мин
+            <span data-i18n="optSessionMax"></span>
             <input type="number" id="sessionMaxMin" min="1" max="240" step="1" />
-            <small>Спустя это время после начала сессии возврат — уже новый заход, даже быстрый.</small>
+            <small data-i18n="optSessionMaxHint"></small>
           </label>
         </div>
         <label class="checkbox">
           <input type="checkbox" id="sharedPool" />
-          Общий счётчик на все сайты (иначе легко ротировать: Реддит кончился — пошёл в Ютуб)
+          <span data-i18n="optSharedPool"></span>
         </label>
         <p class="preview" id="preview"></p>
       </section>
 
       <section>
-        <h2>Сайты</h2>
-        <p class="note">По одному домену на строку, без www. Поддомены считаются автоматически (old.reddit.com → reddit.com).</p>
+        <h2 data-i18n="optSitesHeading"></h2>
+        <p class="note" data-i18n="optSitesNote"></p>
         <textarea id="sites" rows="10" spellcheck="false"></textarea>
       </section>
 
       <div class="save-row">
-        <button id="save" class="btn">Сохранить</button>
+        <button id="save" class="btn" data-i18n="optSave"></button>
         <span id="status" class="status"></span>
       </div>
     </main>

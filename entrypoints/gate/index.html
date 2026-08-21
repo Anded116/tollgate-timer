@@ -18,16 +18,16 @@
         </svg>
         <div class="dial-center">
           <span class="time" id="time">—</span>
-          <span class="paused" id="paused" hidden>пауза — вкладка не в фокусе</span>
+          <span class="paused" id="paused" data-i18n="gatePaused" hidden></span>
         </div>
       </div>
 
       <div class="actions">
-        <button class="btn leave" id="leave">Передумал — закрыть вкладку</button>
-        <button class="btn enter" id="enter" disabled>Войти</button>
+        <button class="btn leave" id="leave" data-i18n="gateLeave"></button>
+        <button class="btn enter" id="enter" data-i18n="gateEnter" disabled></button>
       </div>
 
-      <p class="hint">Круг заполняется, только пока эта вкладка видима и в фокусе.</p>
+      <p class="hint" data-i18n="gateHint"></p>
     </main>
     <script type="module" src="./main.ts"></script>
   </body>
