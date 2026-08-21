@@ -1,5 +1,5 @@
 import { browser } from 'wxt/browser';
-import { DEFAULT_SETTINGS, effectiveCount, matchSite, type Settings } from './model';
+import { DEFAULT_SETTINGS, effectiveCount, matchSite, type SessionTimes, type Settings } from './model';
 
 type VisitMap = Record<string, number[]>;
 type TimeMap = Record<string, number>;
@@ -41,20 +41,23 @@ export async function recordVisit(site: string, tauHours: number, now = Date.now
   list.push(now);
   visits[site] = list;
 
-  const { leftAt, sessionStart } = await browser.storage.local.get(['leftAt', 'sessionStart']);
-  const left: TimeMap = (leftAt as TimeMap | undefined) ?? {};
-  const start: TimeMap = (sessionStart as TimeMap | undefined) ?? {};
+  const stored = await browser.storage.local.get(['leftAt', 'sessionStart', 'closedAt']);
+  const left: TimeMap = (stored.leftAt as TimeMap | undefined) ?? {};
+  const start: TimeMap = (stored.sessionStart as TimeMap | undefined) ?? {};
+  const closed: TimeMap = (stored.closedAt as TimeMap | undefined) ?? {};
   left[site] = now;
   start[site] = now;
+  closed[site] = 0;
 
-  await browser.storage.local.set({ visits, leftAt: left, sessionStart: start });
+  await browser.storage.local.set({ visits, leftAt: left, sessionStart: start, closedAt: closed });
 }
 
-export async function getSessionTimes(site: string): Promise<{ leftAt: number; sessionStart: number }> {
-  const { leftAt, sessionStart } = await browser.storage.local.get(['leftAt', 'sessionStart']);
+export async function getSessionTimes(site: string): Promise<SessionTimes> {
+  const s = await browser.storage.local.get(['leftAt', 'sessionStart', 'closedAt']);
   return {
-    leftAt: (leftAt as TimeMap | undefined)?.[site] ?? 0,
-    sessionStart: (sessionStart as TimeMap | undefined)?.[site] ?? 0,
+    leftAt: (s.leftAt as TimeMap | undefined)?.[site] ?? 0,
+    sessionStart: (s.sessionStart as TimeMap | undefined)?.[site] ?? 0,
+    closedAt: (s.closedAt as TimeMap | undefined)?.[site] ?? 0,
   };
 }
 
@@ -64,10 +67,16 @@ export async function getTabSites(): Promise<TabSiteMap> {
 }
 
 /**
- * Обновить привязку вкладки к сайту. Когда последняя вкладка сайта
- * уходит с него, фиксируется момент ухода (leftAt).
+ * Обновить привязку вкладки к сайту. Когда последняя вкладка сайта уходит с него,
+ * фиксируется момент ухода; closed=true означает, что вкладку закрыли, — такой
+ * уход завершает сессию почти сразу.
  */
-export async function setTabSite(tabId: number, site: string | null, now = Date.now()): Promise<void> {
+export async function setTabSite(
+  tabId: number,
+  site: string | null,
+  now = Date.now(),
+  closed = false,
+): Promise<void> {
   const tabSites = await getTabSites();
   const key = String(tabId);
   const prev = tabSites[key];
@@ -76,10 +85,15 @@ export async function setTabSite(tabId: number, site: string | null, now = Date.
 
   const updates: Record<string, unknown> = { tabSites };
   if (prev && prev !== site && !Object.values(tabSites).includes(prev)) {
-    const { leftAt } = await browser.storage.local.get('leftAt');
-    const left: TimeMap = (leftAt as TimeMap | undefined) ?? {};
+    const stored = await browser.storage.local.get(['leftAt', 'closedAt']);
+    const left: TimeMap = (stored.leftAt as TimeMap | undefined) ?? {};
     left[prev] = now;
     updates.leftAt = left;
+    if (closed) {
+      const closedMap: TimeMap = (stored.closedAt as TimeMap | undefined) ?? {};
+      closedMap[prev] = now;
+      updates.closedAt = closedMap;
+    }
   }
   await browser.storage.local.set(updates);
 }

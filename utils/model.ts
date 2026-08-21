@@ -69,6 +69,33 @@ export const PRESETS: Preset[] = [
   },
 ];
 
+export interface SessionTimes {
+  /** Когда сайт последний раз покинули (навигацией или закрытием). */
+  leftAt: number;
+  /** Начало текущей сессии. */
+  sessionStart: number;
+  /** Когда закрыли последнюю вкладку сайта; 0 — последний уход был навигацией. */
+  closedAt: number;
+}
+
+/** Грейс на случайное закрытие вкладки. */
+export const CLOSE_GRACE_MS = 45_000;
+
+/**
+ * Сколько ещё миллисекунд возврат считается продолжением сессии (0 и меньше —
+ * вход новый). Уход навигацией держит сессию всё «окно сессии», а закрытие
+ * последней вкладки сайта завершает её почти сразу: закрыть и открыть заново
+ * через пару минут — это новый заход, а не продолжение.
+ */
+export function freeReturnMsLeft(times: SessionTimes, s: Settings, now = Date.now()): number {
+  const afterClose = times.closedAt >= times.leftAt;
+  const gapLeft = afterClose
+    ? CLOSE_GRACE_MS - (now - times.closedAt)
+    : s.cooldownMin * 60_000 - (now - times.leftAt);
+  const sessionLeft = s.sessionMaxMin * 60_000 - (now - times.sessionStart);
+  return Math.min(gapLeft, sessionLeft);
+}
+
 /**
  * Эффективное число заходов: каждый заход весит 1 и экспоненциально
  * тает со временем. Никаких суточных сбросов — утро само «обнуляется».

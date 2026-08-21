@@ -1,5 +1,5 @@
 import { browser } from 'wxt/browser';
-import { delayFor, formatDuration, matchSite } from '../../utils/model';
+import { delayFor, formatDuration, freeReturnMsLeft, matchSite } from '../../utils/model';
 import { countToday, currentCount, getSessionTimes, getSettings, getTabSites, getVisits } from '../../utils/store';
 import { applyI18n, t } from '../../utils/i18n';
 
@@ -32,11 +32,7 @@ async function renderStatus() {
     const now = Date.now();
     const tabSites = await getTabSites();
     const thisTabOnSite = tab?.id != null && tabSites[String(tab.id)] === site;
-    const { leftAt, sessionStart } = await getSessionTimes(site);
-    const freeLeft = Math.min(
-      settings.cooldownMin * 60_000 - (now - leftAt),
-      settings.sessionMaxMin * 60_000 - (now - sessionStart),
-    );
+    const freeLeft = freeReturnMsLeft(await getSessionTimes(site), settings, now);
     const delaySec = delayFor(await currentCount(site, settings, now), settings);
     const nextEntry =
       delaySec > 0 ? t('popupPriceTimer', formatDuration(delaySec)) : t('popupPriceFree');

@@ -1,5 +1,5 @@
 import { browser } from 'wxt/browser';
-import { delayFor, matchSite } from '../utils/model';
+import { delayFor, freeReturnMsLeft, matchSite } from '../utils/model';
 import {
   currentCount,
   getSessionTimes,
@@ -45,16 +45,8 @@ async function needsGate(site: string, tabId: number, now: number): Promise<bool
   if (tabSites[String(tabId)] === site) return false;
   if (await openerOnSite(tabId, site, tabSites)) return false;
 
-  // Недавно ушёл и сессия ещё не выдохлась — возврат без нового захода.
-  // Окно НЕ скользящее: возраст сессии ограничен, иначе чекинг каждые
-  // пару минут навсегда остаётся «одной сессией».
-  const { leftAt, sessionStart } = await getSessionTimes(site);
-  if (
-    now - leftAt < settings.cooldownMin * 60_000 &&
-    now - sessionStart < settings.sessionMaxMin * 60_000
-  ) {
-    return false;
-  }
+  // Возврат внутрь живой сессии — не новый заход.
+  if (freeReturnMsLeft(await getSessionTimes(site), settings, now) > 0) return false;
 
   const delaySec = delayFor(await currentCount(site, settings, now), settings);
   if (delaySec <= 0) {
@@ -114,7 +106,7 @@ export default defineBackground(() => {
 
   browser.tabs.onRemoved.addListener(async (tabId) => {
     try {
-      await setTabSite(tabId, null);
+      await setTabSite(tabId, null, Date.now(), true);
     } catch (e) {
       console.error('[tollgate] onRemoved failed', e);
     }
