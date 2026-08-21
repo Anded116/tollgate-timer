@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Tollgate Timer — настройки</title>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <main class="wrap">
+      <h1>Tollgate</h1>
+      <p class="sub">Чем чаще заходишь — тем дольше ждёшь. Счётчик заходов тает сам по себе, суточных сбросов нет.</p>
+
+      <section>
+        <h2>Пресет строгости</h2>
+        <div class="presets" id="presets"></div>
+      </section>
+
+      <section>
+        <h2>Параметры таймера</h2>
+        <div class="grid">
+          <label>
+            Бесплатных заходов
+            <input type="number" id="freeVisits" min="0" max="20" step="1" />
+            <small>Столько заходов подряд — без таймера вообще.</small>
+          </label>
+          <label>
+            Базовая задержка, сек
+            <input type="number" id="baseSec" min="1" max="600" step="1" />
+            <small>Длина таймера на первом «платном» заходе.</small>
+          </label>
+          <label>
+            Множитель роста
+            <input type="number" id="growth" min="1.05" max="4" step="0.05" />
+            <small>Во сколько раз дорожает каждый следующий заход.</small>
+          </label>
+          <label>
+            Потолок, мин
+            <input type="number" id="capMin" min="1" max="120" step="1" />
+            <small>Дольше этого таймер не растёт. Бесконечный рост = блокировка = срыв.</small>
+          </label>
+          <label>
+            Распад счётчика, ч
+            <input type="number" id="tauHours" min="1" max="48" step="0.5" />
+            <small>За это время «вес» захода падает в ~2.7 раза. Больше — строже.</small>
+          </label>
+          <label>
+            Окно сессии, мин
+            <input type="number" id="cooldownMin" min="1" max="60" step="1" />
+            <small>Вернулся на сайт в течение этого времени — это не новый заход.</small>
+          </label>
+          <label>
+            Возраст сессии, мин
+            <input type="number" id="sessionMaxMin" min="1" max="240" step="1" />
+            <small>Спустя это время после начала сессии возврат — уже новый заход, даже быстрый.</small>
+          </label>
+        </div>
+        <label class="checkbox">
+          <input type="checkbox" id="sharedPool" />
+          Общий счётчик на все сайты (иначе легко ротировать: Реддит кончился — пошёл в Ютуб)
+        </label>
+        <p class="preview" id="preview"></p>
+      </section>
+
+      <section>
+        <h2>Сайты</h2>
+        <p class="note">По одному домену на строку, без www. Поддомены считаются автоматически (old.reddit.com → reddit.com).</p>
+        <textarea id="sites" rows="10" spellcheck="false"></textarea>
+      </section>
+
+      <div class="save-row">
+        <button id="save" class="btn">Сохранить</button>
+        <span id="status" class="status"></span>
+      </div>
+    </main>
+    <script type="module" src="./main.ts"></script>
+  </body>
+</html>

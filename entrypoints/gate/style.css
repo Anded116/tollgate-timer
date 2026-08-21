@@ -1,0 +1,153 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --bg-1: #0f1420;
+  --bg-2: #1a2233;
+  --text: #e8ecf4;
+  --muted: #8b94a7;
+  --accent: #6ea8ff;
+  --accent-soft: rgba(110, 168, 255, 0.14);
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  color: var(--text);
+  background: radial-gradient(1200px 800px at 50% -10%, var(--bg-2), var(--bg-1));
+  display: grid;
+  place-items: center;
+}
+
+.wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  padding: 40px 24px;
+  text-align: center;
+}
+
+.site {
+  font-size: 28px;
+  font-weight: 650;
+  letter-spacing: 0.02em;
+}
+
+.visit-line {
+  color: var(--muted);
+  font-size: 15px;
+  max-width: 420px;
+  line-height: 1.5;
+}
+
+.dial {
+  position: relative;
+  width: 220px;
+  height: 220px;
+  margin: 12px 0;
+}
+
+.dial svg {
+  transform: rotate(-90deg);
+}
+
+.track {
+  fill: none;
+  stroke: rgba(255, 255, 255, 0.08);
+  stroke-width: 10;
+}
+
+.progress {
+  fill: none;
+  stroke: var(--accent);
+  stroke-width: 10;
+  stroke-linecap: round;
+  transition: stroke 0.3s;
+}
+
+.dial.done .progress {
+  stroke: #7ee2a8;
+}
+
+.dial-center {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+}
+
+.time {
+  font-size: 40px;
+  font-weight: 300;
+  font-variant-numeric: tabular-nums;
+}
+
+.paused {
+  font-size: 12px;
+  color: var(--muted);
+  max-width: 140px;
+  line-height: 1.4;
+}
+
+.actions {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: 320px;
+  max-width: 90vw;
+}
+
+.btn {
+  font: inherit;
+  font-size: 16px;
+  padding: 14px 20px;
+  border-radius: 12px;
+  border: none;
+  cursor: pointer;
+  transition: transform 0.08s, background 0.2s, opacity 0.2s;
+}
+
+.btn:active {
+  transform: scale(0.98);
+}
+
+.btn.leave {
+  background: var(--accent);
+  color: #0d1524;
+  font-weight: 650;
+}
+
+.btn.leave:hover {
+  background: #8ab8ff;
+}
+
+.btn.enter {
+  background: var(--accent-soft);
+  color: var(--text);
+}
+
+.btn.enter:disabled {
+  opacity: 0.35;
+  cursor: default;
+}
+
+.btn.enter:not(:disabled):hover {
+  background: rgba(110, 168, 255, 0.25);
+}
+
+.hint {
+  color: var(--muted);
+  font-size: 13px;
+  margin-top: 8px;
+}

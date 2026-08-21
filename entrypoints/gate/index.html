@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Tollgate Timer</title>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <main class="wrap">
+      <p class="site" id="site">…</p>
+      <p class="visit-line" id="visit-line"></p>
+
+      <div class="dial">
+        <svg viewBox="0 0 220 220" width="220" height="220" aria-hidden="true">
+          <circle class="track" cx="110" cy="110" r="96" />
+          <circle class="progress" id="progress" cx="110" cy="110" r="96" />
+        </svg>
+        <div class="dial-center">
+          <span class="time" id="time">—</span>
+          <span class="paused" id="paused" hidden>пауза — вкладка не в фокусе</span>
+        </div>
+      </div>
+
+      <div class="actions">
+        <button class="btn leave" id="leave">Передумал — закрыть вкладку</button>
+        <button class="btn enter" id="enter" disabled>Войти</button>
+      </div>
+
+      <p class="hint">Круг заполняется, только пока эта вкладка видима и в фокусе.</p>
+    </main>
+    <script type="module" src="./main.ts"></script>
+  </body>
+</html>
