@@ -60,9 +60,17 @@ npm run zip:firefox    # пакет для AMO + архив исходников
 
 1. Один раз получить ключи: [Developer Hub → Manage API Keys](https://addons.mozilla.org/developers/addon/api/key/)
    → JWT issuer и JWT secret.
-2. Положить их в переменные окружения (PowerShell, на постоянно):
+2. Положить их в переменные окружения (PowerShell, на постоянно). Значения
+   вставлять как есть, БЕЗ угловых скобок и без лишних кавычек внутри значения —
+   AMO ответит `Error decoding signature`, если в секрет попадёт мусор:
    ```powershell
-   setx WEB_EXT_API_KEY "user:12345:67"; setx WEB_EXT_API_SECRET "<secret>"
+   setx WEB_EXT_API_KEY "user:12345:67"
+   setx WEB_EXT_API_SECRET "0123456789abcdef0123456789abcdef0123456789abcdef0123456789abcdef"
+   ```
+   Issuer выглядит как `user:<цифры>:<цифры>`, секрет — 64 hex-символа. Проверить
+   форму, не раскрывая значения:
+   ```powershell
+   $s=[Environment]::GetEnvironmentVariable("WEB_EXT_API_SECRET","User"); "$($s.Length) chars, hex64: $($s -match '^[0-9a-f]{64}$')"
    ```
    `setx` действует на новые процессы — терминал после этого перезапустить.
    В команды секреты не подставлять: `web-ext` читает их из окружения сам.
