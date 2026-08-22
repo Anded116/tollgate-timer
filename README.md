@@ -45,12 +45,47 @@ npm run zip:firefox    # пакет для AMO + архив исходников
 Тексты листинга, обоснования разрешений и порядок загрузки в сторы — в
 [PUBLISHING.md](PUBLISHING.md); картинки для листинга — в `assets-store/`.
 
-## Установка для тестирования
+## Установка
 
-**Firefox**: `about:debugging#/runtime/this-firefox` → «Загрузить временное
-дополнение» → выбрать `.output/firefox-mv2/manifest.json`. (Временное дополнение
-живёт до перезапуска браузера; для постоянной установки нужен подписанный zip:
-`npm run zip:firefox` → загрузить на addons.mozilla.org, хотя бы self-hosted.)
+### На время разработки
+
+`about:debugging#/runtime/this-firefox` → «Загрузить временное дополнение» →
+`.output/firefox-mv2/manifest.json`. Живёт до перезапуска браузера, данные
+и настройки при этом теряются — годится для правок, но не для «пожить неделю».
+
+### Постоянно, без публикации в сторе
+
+Подписать XPI на AMO в режиме **unlisted**: публичного листинга не создаётся,
+подпись бесплатна и обычно выдаётся автоматически за минуты.
+
+1. Один раз получить ключи: [Developer Hub → Manage API Keys](https://addons.mozilla.org/developers/addon/api/key/)
+   → JWT issuer и JWT secret.
+2. Положить их в переменные окружения (PowerShell, на постоянно):
+   ```powershell
+   setx WEB_EXT_API_KEY "user:12345:67"; setx WEB_EXT_API_SECRET "<secret>"
+   ```
+   `setx` действует на новые процессы — терминал после этого перезапустить.
+   В команды секреты не подставлять: `web-ext` читает их из окружения сам.
+3. Подписать:
+   ```bash
+   npm run sign:firefox
+   ```
+   Готовый файл появится в `.output/signed/*.xpi`.
+4. Установить: `about:addons` → шестерёнка → «Install Add-on From File» → XPI.
+
+Данные живут в профиле и переживают перезапуски браузера и переустановку
+расширения — идентичность задана `gecko.id`, менять его нельзя.
+
+Каждая новая подпись требует уникальной версии: поднять `version` в
+`package.json` перед повторным `sign:firefox`. Автообновлений у self-distributed
+аддона нет — новая версия ставится тем же ручным способом. Если AMO попросит
+исходники (код в пакете минифицирован сборщиком), приложить
+`.output/tollgate-timer-<version>-sources.zip` из `npm run zip:firefox`.
+
+Отключить проверку подписи вместо этого (`xpinstall.signatures.required=false`
+в `about:config`) в обычном Firefox нельзя — pref игнорируется в release-сборках.
+Он работает только в Developer Edition, Nightly и ESR; часть форков тоже
+разрешает, так что в Zen стоит проверить — но подписанный XPI надёжнее.
 
 ## Дашборд в попапе
 

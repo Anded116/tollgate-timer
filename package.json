@@ -6,16 +6,18 @@
   "version": "1.0.0",
   "type": "module",
   "scripts": {
-    "dev": "wxt",
-    "dev:firefox": "wxt -b firefox",
     "build": "wxt build",
     "build:firefox": "wxt build -b firefox",
+    "dev": "wxt",
+    "dev:firefox": "wxt -b firefox",
+    "postinstall": "wxt prepare",
+    "sign:firefox": "wxt build -b firefox && web-ext sign --source-dir .output/firefox-mv2 --channel unlisted --artifacts-dir .output/signed",
     "zip": "wxt zip",
-    "zip:firefox": "wxt zip -b firefox",
-    "postinstall": "wxt prepare"
+    "zip:firefox": "wxt zip -b firefox"
   },
   "devDependencies": {
     "typescript": "^5.6.3",
+    "web-ext": "^10.6.0",
     "wxt": "^0.20.0"
   }
 }
