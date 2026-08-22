@@ -7,8 +7,8 @@
 
 | Файл | Куда |
 | --- | --- |
-| `.output/tollgate-timer-1.0.0-firefox.zip` | AMO — сам аддон |
-| `.output/tollgate-timer-1.0.0-sources.zip` | AMO — исходники, если ревью попросит |
+| `.output/tollgate-timer-<version>-firefox.zip` | AMO — сам аддон |
+| `.output/tollgate-timer-<version>-sources.zip` | AMO — исходники, если ревью попросит |
 | `assets-store/icon-512.png` | иконка листинга |
 | `assets-store/screenshot-1-gate.png` | скриншот 1280×800 — экран таймера |
 | `assets-store/screenshot-2-popup.png` | скриншот 1280×800 — попап |
@@ -112,7 +112,7 @@ The uploaded package is bundled and minified by WXT (Vite). To reproduce:
   npm ci
   npm run build:firefox
 The result appears in .output/firefox-mv2/ and matches the uploaded package.
-Source archive: tollgate-timer-1.0.0-sources.zip (includes package-lock.json).
+Source archive: tollgate-timer-<version>-sources.zip (includes package-lock.json).
 
 LOCALIZATION
 UI strings live in _locales/<locale>/messages.json (en, ru, de, fr, es, it, pl,
@@ -125,7 +125,7 @@ pt_BR, ja); the interface follows the browser language, English is the default.
 2. Выбрать способ распространения:
    - **On this site** — публичный листинг, автообновления, проходит ревью;
    - **On your own** — подписанный XPI без листинга, ставится вручную.
-3. Загрузить `tollgate-timer-1.0.0-firefox.zip`, дождаться валидации.
+3. Загрузить `tollgate-timer-<version>-firefox.zip`, дождаться валидации.
 4. Заполнить листинг текстами выше, добавить иконку и скриншоты.
 5. Ответить на вопросы про данные (ответы выше) и отправить.
 
