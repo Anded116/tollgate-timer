@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="ru">
+<html lang="en">
   <head>
     <meta charset="utf-8" />
     <title>Tollgate Timer</title>
@@ -10,9 +10,30 @@
       <h1>Tollgate</h1>
       <button id="open-options" class="link" data-i18n="popupSettings"></button>
     </header>
+
     <div id="status" class="status-card" hidden></div>
-    <ul id="list" class="list"></ul>
-    <p class="footnote" data-i18n="popupFootnote"></p>
+
+    <section class="metrics" id="metrics"></section>
+
+    <section class="heat">
+      <div class="heat-head">
+        <span data-i18n="heatTitle"></span>
+        <span class="legend">
+          <span data-i18n="heatCalm"></span>
+          <i class="sw lvl-0"></i><i class="sw lvl-1"></i><i class="sw lvl-2"></i>
+          <i class="sw lvl-3"></i><i class="sw lvl-4"></i>
+          <span data-i18n="heatBinge"></span>
+        </span>
+      </div>
+      <div class="heat-months" id="heat-months"></div>
+      <div class="heat-grid" id="heat"></div>
+      <p class="heat-empty" id="heat-empty" data-i18n="heatEmpty" hidden></p>
+    </section>
+
+    <section class="sites">
+      <div class="sites-head" data-i18n="popupFootnote"></div>
+      <ul id="list" class="list"></ul>
+    </section>
     <script type="module" src="./main.ts"></script>
   </body>
 </html>

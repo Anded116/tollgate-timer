@@ -98,6 +98,31 @@ export async function setTabSite(
   await browser.storage.local.set(updates);
 }
 
+/** Вкладка, показывающая шлюз: нужна, чтобы поймать уход без нажатия кнопок. */
+interface GateTab {
+  site: string;
+  at: number;
+}
+
+export async function markGateTab(tabId: number, site: string, at = Date.now()): Promise<void> {
+  const { gateTabs } = await browser.storage.local.get('gateTabs');
+  const map = (gateTabs as Record<string, GateTab> | undefined) ?? {};
+  map[String(tabId)] = { site, at };
+  await browser.storage.local.set({ gateTabs: map });
+}
+
+/** Забрать и снять отметку: вернёт запись, если вкладка стояла у шлюза. */
+export async function takeGateTab(tabId: number): Promise<GateTab | null> {
+  const { gateTabs } = await browser.storage.local.get('gateTabs');
+  const map = (gateTabs as Record<string, GateTab> | undefined) ?? {};
+  const key = String(tabId);
+  const entry = map[key];
+  if (!entry) return null;
+  delete map[key];
+  await browser.storage.local.set({ gateTabs: map });
+  return entry;
+}
+
 /** Пересобрать карту вкладок с нуля по реальным вкладкам (на старте фона). */
 export async function rebuildTabSites(sites: string[]): Promise<void> {
   const tabs = await browser.tabs.query({});

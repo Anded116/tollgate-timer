@@ -195,5 +195,81 @@
   },
   "optSitesNotStored": {
     "message": "lista stron nie została zapisana"
+  },
+  "statToday": {
+    "message": "Wejścia dzisiaj"
+  },
+  "statAvgWeek": {
+    "message": "$P1$ dziennie w tym tygodniu",
+    "placeholders": {
+      "p1": {
+        "content": "$1"
+      }
+    }
+  },
+  "statDeclined": {
+    "message": "Rezygnacje"
+  },
+  "statDeclinedHint": {
+    "message": "z prób, 7 dni"
+  },
+  "statStreak": {
+    "message": "Spokojne dni"
+  },
+  "statVsPrevWeek": {
+    "message": "$P1$ do poprzedniego tygodnia",
+    "placeholders": {
+      "p1": {
+        "content": "$1"
+      }
+    }
+  },
+  "statWaited": {
+    "message": "Czekanie"
+  },
+  "statWaitedHint": {
+    "message": "przy bramce, 7 dni"
+  },
+  "unitMin": {
+    "message": "$P1$ min",
+    "placeholders": {
+      "p1": {
+        "content": "$1"
+      }
+    }
+  },
+  "heatTitle": {
+    "message": "Wejścia dziennie, ostatni rok"
+  },
+  "heatCalm": {
+    "message": "spokój"
+  },
+  "heatBinge": {
+    "message": "ciąg"
+  },
+  "heatTip": {
+    "message": "$P1$ · wejścia: $P2$ · rezygnacje: $P3$",
+    "placeholders": {
+      "p1": {
+        "content": "$1"
+      },
+      "p2": {
+        "content": "$2"
+      },
+      "p3": {
+        "content": "$3"
+      }
+    }
+  },
+  "heatTipNoData": {
+    "message": "$P1$ · brak danych",
+    "placeholders": {
+      "p1": {
+        "content": "$1"
+      }
+    }
+  },
+  "heatEmpty": {
+    "message": "Historia pojawi się tutaj w miarę korzystania z rozszerzenia."
   }
 }

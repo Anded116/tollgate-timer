@@ -26,7 +26,7 @@
     "message": "(Zähler für alle Seiten gemeinsam)"
   },
   "unitSec": {
-    "message": "$P1$ Sek.",
+    "message": "$P1$ Sek",
     "placeholders": {
       "p1": {
         "content": "$1"
@@ -195,5 +195,81 @@
   },
   "optSitesNotStored": {
     "message": "die Seitenliste wurde nicht gespeichert"
+  },
+  "statToday": {
+    "message": "Eintritte heute"
+  },
+  "statAvgWeek": {
+    "message": "$P1$ pro Tag diese Woche",
+    "placeholders": {
+      "p1": {
+        "content": "$1"
+      }
+    }
+  },
+  "statDeclined": {
+    "message": "Umentschieden"
+  },
+  "statDeclinedHint": {
+    "message": "der Versuche, 7 Tage"
+  },
+  "statStreak": {
+    "message": "Ruhige Tage"
+  },
+  "statVsPrevWeek": {
+    "message": "$P1$ zur Vorwoche",
+    "placeholders": {
+      "p1": {
+        "content": "$1"
+      }
+    }
+  },
+  "statWaited": {
+    "message": "Gewartet"
+  },
+  "statWaitedHint": {
+    "message": "am Schlagbaum, 7 Tage"
+  },
+  "unitMin": {
+    "message": "$P1$ Min.",
+    "placeholders": {
+      "p1": {
+        "content": "$1"
+      }
+    }
+  },
+  "heatTitle": {
+    "message": "Eintritte pro Tag, letztes Jahr"
+  },
+  "heatCalm": {
+    "message": "ruhig"
+  },
+  "heatBinge": {
+    "message": "Exzess"
+  },
+  "heatTip": {
+    "message": "$P1$ · Eintritte: $P2$ · umentschieden: $P3$",
+    "placeholders": {
+      "p1": {
+        "content": "$1"
+      },
+      "p2": {
+        "content": "$2"
+      },
+      "p3": {
+        "content": "$3"
+      }
+    }
+  },
+  "heatTipNoData": {
+    "message": "$P1$ · keine Daten",
+    "placeholders": {
+      "p1": {
+        "content": "$1"
+      }
+    }
+  },
+  "heatEmpty": {
+    "message": "Der Verlauf erscheint hier, sobald du die Erweiterung nutzt."
   }
 }

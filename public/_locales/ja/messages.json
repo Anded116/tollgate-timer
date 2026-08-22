@@ -195,5 +195,81 @@
   },
   "optSitesNotStored": {
     "message": "サイト一覧が保存されませんでした"
+  },
+  "statToday": {
+    "message": "本日の入場"
+  },
+  "statAvgWeek": {
+    "message": "今週は1日 $P1$ 回",
+    "placeholders": {
+      "p1": {
+        "content": "$1"
+      }
+    }
+  },
+  "statDeclined": {
+    "message": "やめた割合"
+  },
+  "statDeclinedHint": {
+    "message": "試行のうち · 7日間"
+  },
+  "statStreak": {
+    "message": "穏やかな日"
+  },
+  "statVsPrevWeek": {
+    "message": "先週比 $P1$",
+    "placeholders": {
+      "p1": {
+        "content": "$1"
+      }
+    }
+  },
+  "statWaited": {
+    "message": "待った時間"
+  },
+  "statWaitedHint": {
+    "message": "ゲートで · 7日間"
+  },
+  "unitMin": {
+    "message": "$P1$ 分",
+    "placeholders": {
+      "p1": {
+        "content": "$1"
+      }
+    }
+  },
+  "heatTitle": {
+    "message": "日別の入場（過去1年）"
+  },
+  "heatCalm": {
+    "message": "穏やか"
+  },
+  "heatBinge": {
+    "message": "過剰"
+  },
+  "heatTip": {
+    "message": "$P1$ · 入場: $P2$ · やめた: $P3$",
+    "placeholders": {
+      "p1": {
+        "content": "$1"
+      },
+      "p2": {
+        "content": "$2"
+      },
+      "p3": {
+        "content": "$3"
+      }
+    }
+  },
+  "heatTipNoData": {
+    "message": "$P1$ · データなし",
+    "placeholders": {
+      "p1": {
+        "content": "$1"
+      }
+    }
+  },
+  "heatEmpty": {
+    "message": "拡張機能を使うにつれて、ここに履歴が表示されます。"
   }
 }

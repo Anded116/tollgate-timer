@@ -195,5 +195,81 @@
   },
   "optSitesNotStored": {
     "message": "список сайтов не сохранился"
+  },
+  "statToday": {
+    "message": "Входов сегодня"
+  },
+  "statAvgWeek": {
+    "message": "$P1$ в день за неделю",
+    "placeholders": {
+      "p1": {
+        "content": "$1"
+      }
+    }
+  },
+  "statDeclined": {
+    "message": "Передумал"
+  },
+  "statDeclinedHint": {
+    "message": "от попыток, 7 дней"
+  },
+  "statStreak": {
+    "message": "Спокойных дней"
+  },
+  "statVsPrevWeek": {
+    "message": "$P1$ к прошлой неделе",
+    "placeholders": {
+      "p1": {
+        "content": "$1"
+      }
+    }
+  },
+  "statWaited": {
+    "message": "Ожидание"
+  },
+  "statWaitedHint": {
+    "message": "у шлюза, 7 дней"
+  },
+  "unitMin": {
+    "message": "$P1$ мин",
+    "placeholders": {
+      "p1": {
+        "content": "$1"
+      }
+    }
+  },
+  "heatTitle": {
+    "message": "Входы по дням за год"
+  },
+  "heatCalm": {
+    "message": "спокойно"
+  },
+  "heatBinge": {
+    "message": "запой"
+  },
+  "heatTip": {
+    "message": "$P1$ · входов: $P2$ · передумал: $P3$",
+    "placeholders": {
+      "p1": {
+        "content": "$1"
+      },
+      "p2": {
+        "content": "$2"
+      },
+      "p3": {
+        "content": "$3"
+      }
+    }
+  },
+  "heatTipNoData": {
+    "message": "$P1$ · нет данных",
+    "placeholders": {
+      "p1": {
+        "content": "$1"
+      }
+    }
+  },
+  "heatEmpty": {
+    "message": "История появится здесь по мере использования расширения."
   }
 }

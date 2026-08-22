@@ -195,5 +195,81 @@
   },
   "optSitesNotStored": {
     "message": "the site list was not saved"
+  },
+  "statToday": {
+    "message": "Entries today"
+  },
+  "statAvgWeek": {
+    "message": "$P1$ a day this week",
+    "placeholders": {
+      "p1": {
+        "content": "$1"
+      }
+    }
+  },
+  "statDeclined": {
+    "message": "Changed mind"
+  },
+  "statDeclinedHint": {
+    "message": "of attempts, 7 days"
+  },
+  "statStreak": {
+    "message": "Calm days"
+  },
+  "statVsPrevWeek": {
+    "message": "$P1$ vs last week",
+    "placeholders": {
+      "p1": {
+        "content": "$1"
+      }
+    }
+  },
+  "statWaited": {
+    "message": "Waited"
+  },
+  "statWaitedHint": {
+    "message": "at the gate, 7 days"
+  },
+  "unitMin": {
+    "message": "$P1$ min",
+    "placeholders": {
+      "p1": {
+        "content": "$1"
+      }
+    }
+  },
+  "heatTitle": {
+    "message": "Entries per day, past year"
+  },
+  "heatCalm": {
+    "message": "calm"
+  },
+  "heatBinge": {
+    "message": "binge"
+  },
+  "heatTip": {
+    "message": "$P1$ · entries: $P2$ · changed mind: $P3$",
+    "placeholders": {
+      "p1": {
+        "content": "$1"
+      },
+      "p2": {
+        "content": "$2"
+      },
+      "p3": {
+        "content": "$3"
+      }
+    }
+  },
+  "heatTipNoData": {
+    "message": "$P1$ · no data",
+    "placeholders": {
+      "p1": {
+        "content": "$1"
+      }
+    }
+  },
+  "heatEmpty": {
+    "message": "History appears here as you use the extension."
   }
 }

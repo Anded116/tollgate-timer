@@ -1,9 +1,12 @@
 import { browser } from 'wxt/browser';
 import { delayFor, formatDuration } from '../../utils/model';
 import { applyI18n, t } from '../../utils/i18n';
-import { currentCount, getSettings, getVisits, recordVisit, countToday } from '../../utils/store';
+import { currentCount, getSettings, getVisits, recordVisit, countToday, takeGateTab } from '../../utils/store';
+import { statDecline, statEntry } from '../../utils/stats';
 
 applyI18n();
+
+const openedAt = Date.now();
 
 const params = new URLSearchParams(location.search);
 const target = params.get('target') ?? '';
@@ -74,13 +77,18 @@ async function init() {
   $enter.addEventListener('click', async () => {
     if (!done) return;
     $enter.disabled = true;
+    const tab = await browser.tabs.getCurrent();
+    if (tab?.id != null) await takeGateTab(tab.id);
     await recordVisit(site, settings.tauHours);
+    await statEntry(site, Date.now() - openedAt);
     location.href = target;
   });
 }
 
 $leave.addEventListener('click', async () => {
   const tab = await browser.tabs.getCurrent();
+  if (tab?.id != null) await takeGateTab(tab.id);
+  await statDecline(Date.now() - openedAt);
   if (tab?.id != null) {
     await browser.tabs.remove(tab.id);
   } else {

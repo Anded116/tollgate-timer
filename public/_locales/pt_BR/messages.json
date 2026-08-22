@@ -195,5 +195,81 @@
   },
   "optSitesNotStored": {
     "message": "a lista de sites não foi salva"
+  },
+  "statToday": {
+    "message": "Entradas hoje"
+  },
+  "statAvgWeek": {
+    "message": "$P1$ por dia nesta semana",
+    "placeholders": {
+      "p1": {
+        "content": "$1"
+      }
+    }
+  },
+  "statDeclined": {
+    "message": "Desistências"
+  },
+  "statDeclinedHint": {
+    "message": "das tentativas, 7 dias"
+  },
+  "statStreak": {
+    "message": "Dias calmos"
+  },
+  "statVsPrevWeek": {
+    "message": "$P1$ vs semana passada",
+    "placeholders": {
+      "p1": {
+        "content": "$1"
+      }
+    }
+  },
+  "statWaited": {
+    "message": "Espera"
+  },
+  "statWaitedHint": {
+    "message": "na cancela, 7 dias"
+  },
+  "unitMin": {
+    "message": "$P1$ min",
+    "placeholders": {
+      "p1": {
+        "content": "$1"
+      }
+    }
+  },
+  "heatTitle": {
+    "message": "Entradas por dia, último ano"
+  },
+  "heatCalm": {
+    "message": "calmo"
+  },
+  "heatBinge": {
+    "message": "exagero"
+  },
+  "heatTip": {
+    "message": "$P1$ · entradas: $P2$ · desistências: $P3$",
+    "placeholders": {
+      "p1": {
+        "content": "$1"
+      },
+      "p2": {
+        "content": "$2"
+      },
+      "p3": {
+        "content": "$3"
+      }
+    }
+  },
+  "heatTipNoData": {
+    "message": "$P1$ · sem dados",
+    "placeholders": {
+      "p1": {
+        "content": "$1"
+      }
+    }
+  },
+  "heatEmpty": {
+    "message": "O histórico aparecerá aqui conforme você usar a extensão."
   }
 }

@@ -195,5 +195,81 @@
   },
   "optSitesNotStored": {
     "message": "la liste des sites n’a pas été enregistrée"
+  },
+  "statToday": {
+    "message": "Entrées aujourd’hui"
+  },
+  "statAvgWeek": {
+    "message": "$P1$ par jour cette semaine",
+    "placeholders": {
+      "p1": {
+        "content": "$1"
+      }
+    }
+  },
+  "statDeclined": {
+    "message": "Renoncé"
+  },
+  "statDeclinedHint": {
+    "message": "des tentatives, 7 jours"
+  },
+  "statStreak": {
+    "message": "Jours calmes"
+  },
+  "statVsPrevWeek": {
+    "message": "$P1$ vs semaine dernière",
+    "placeholders": {
+      "p1": {
+        "content": "$1"
+      }
+    }
+  },
+  "statWaited": {
+    "message": "Attente"
+  },
+  "statWaitedHint": {
+    "message": "au péage, 7 jours"
+  },
+  "unitMin": {
+    "message": "$P1$ min",
+    "placeholders": {
+      "p1": {
+        "content": "$1"
+      }
+    }
+  },
+  "heatTitle": {
+    "message": "Entrées par jour, année passée"
+  },
+  "heatCalm": {
+    "message": "calme"
+  },
+  "heatBinge": {
+    "message": "excès"
+  },
+  "heatTip": {
+    "message": "$P1$ · entrées : $P2$ · renoncé : $P3$",
+    "placeholders": {
+      "p1": {
+        "content": "$1"
+      },
+      "p2": {
+        "content": "$2"
+      },
+      "p3": {
+        "content": "$3"
+      }
+    }
+  },
+  "heatTipNoData": {
+    "message": "$P1$ · pas de données",
+    "placeholders": {
+      "p1": {
+        "content": "$1"
+      }
+    }
+  },
+  "heatEmpty": {
+    "message": "L’historique apparaîtra ici à mesure que vous utilisez l’extension."
   }
 }

@@ -195,5 +195,81 @@
   },
   "optSitesNotStored": {
     "message": "l’elenco dei siti non è stato salvato"
+  },
+  "statToday": {
+    "message": "Ingressi oggi"
+  },
+  "statAvgWeek": {
+    "message": "$P1$ al giorno questa settimana",
+    "placeholders": {
+      "p1": {
+        "content": "$1"
+      }
+    }
+  },
+  "statDeclined": {
+    "message": "Ripensamenti"
+  },
+  "statDeclinedHint": {
+    "message": "dei tentativi, 7 giorni"
+  },
+  "statStreak": {
+    "message": "Giorni calmi"
+  },
+  "statVsPrevWeek": {
+    "message": "$P1$ rispetto a settimana scorsa",
+    "placeholders": {
+      "p1": {
+        "content": "$1"
+      }
+    }
+  },
+  "statWaited": {
+    "message": "Attesa"
+  },
+  "statWaitedHint": {
+    "message": "al casello, 7 giorni"
+  },
+  "unitMin": {
+    "message": "$P1$ min",
+    "placeholders": {
+      "p1": {
+        "content": "$1"
+      }
+    }
+  },
+  "heatTitle": {
+    "message": "Ingressi al giorno, ultimo anno"
+  },
+  "heatCalm": {
+    "message": "calmo"
+  },
+  "heatBinge": {
+    "message": "abbuffata"
+  },
+  "heatTip": {
+    "message": "$P1$ · ingressi: $P2$ · ripensamenti: $P3$",
+    "placeholders": {
+      "p1": {
+        "content": "$1"
+      },
+      "p2": {
+        "content": "$2"
+      },
+      "p3": {
+        "content": "$3"
+      }
+    }
+  },
+  "heatTipNoData": {
+    "message": "$P1$ · nessun dato",
+    "placeholders": {
+      "p1": {
+        "content": "$1"
+      }
+    }
+  },
+  "heatEmpty": {
+    "message": "Lo storico apparirà qui man mano che usi l’estensione."
   }
 }
