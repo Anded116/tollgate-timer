@@ -3,7 +3,7 @@
   "description": "Динамический таймер входа на залипательные сайты",
   "private": true,
   "license": "MIT",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "type": "module",
   "scripts": {
     "build": "wxt build",
