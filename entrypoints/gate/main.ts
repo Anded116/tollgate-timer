@@ -1,12 +1,18 @@
 import { browser } from 'wxt/browser';
 import { delayFor, formatDuration } from '../../utils/model';
 import { applyI18n, t } from '../../utils/i18n';
-import { currentCount, getSettings, getVisits, recordVisit, countToday, takeGateTab } from '../../utils/store';
+import {
+  countToday,
+  currentCount,
+  getSettings,
+  getVisits,
+  recordVisit,
+  takeGateTab,
+  updateGateWait,
+} from '../../utils/store';
 import { statDecline, statEntry } from '../../utils/stats';
 
 applyI18n();
-
-const openedAt = Date.now();
 
 const params = new URLSearchParams(location.search);
 const target = params.get('target') ?? '';
@@ -21,6 +27,10 @@ const $enter = document.getElementById('enter') as HTMLButtonElement;
 const $leave = document.getElementById('leave') as HTMLButtonElement;
 const $dial = document.querySelector('.dial')!;
 
+/** Активное время у шлюза: только пока вкладка видима и в фокусе. */
+let acc = 0;
+let tabId: number | null = null;
+
 const CIRCUMFERENCE = 2 * Math.PI * 96;
 $progress.style.strokeDasharray = String(CIRCUMFERENCE);
 $progress.style.strokeDashoffset = String(CIRCUMFERENCE);
@@ -32,6 +42,7 @@ async function init() {
   }
 
   $site.textContent = site;
+  tabId = (await browser.tabs.getCurrent())?.id ?? null;
 
   const settings = await getSettings();
   const now = Date.now();
@@ -43,9 +54,9 @@ async function init() {
   const poolNote = settings.sharedPool ? ' ' + t('gateSharedPool') : '';
   $visitLine.textContent = t('gateVisitLine', String(today)) + poolNote;
 
-  let acc = 0;
   let lastTick: number | null = null;
   let done = false;
+  let reported = 0;
 
   function frame(ts: number) {
     const active = document.visibilityState === 'visible' && document.hasFocus();
@@ -70,6 +81,12 @@ async function init() {
       $time.textContent = formatDuration((delayMs - acc) / 1000);
     }
 
+    // Фон должен знать активное время, даже если вкладку просто закроют.
+    if (tabId != null && acc - reported >= 1000) {
+      reported = acc;
+      void updateGateWait(tabId, Math.round(acc));
+    }
+
     if (!done) requestAnimationFrame(frame);
   }
   requestAnimationFrame(frame);
@@ -77,20 +94,19 @@ async function init() {
   $enter.addEventListener('click', async () => {
     if (!done) return;
     $enter.disabled = true;
-    const tab = await browser.tabs.getCurrent();
-    if (tab?.id != null) await takeGateTab(tab.id);
+    if (tabId != null) await takeGateTab(tabId);
     await recordVisit(site, settings.tauHours);
-    await statEntry(site, Date.now() - openedAt);
+    await statEntry(site, Math.round(acc));
     location.href = target;
   });
+
 }
 
 $leave.addEventListener('click', async () => {
-  const tab = await browser.tabs.getCurrent();
-  if (tab?.id != null) await takeGateTab(tab.id);
-  await statDecline(Date.now() - openedAt);
-  if (tab?.id != null) {
-    await browser.tabs.remove(tab.id);
+  if (tabId != null) await takeGateTab(tabId);
+  await statDecline(Math.round(acc));
+  if (tabId != null) {
+    await browser.tabs.remove(tabId);
   } else {
     window.close();
   }

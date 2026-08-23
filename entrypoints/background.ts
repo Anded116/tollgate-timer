@@ -72,7 +72,7 @@ async function sendToGate(tabId: number, site: string, target: string) {
 /** Ушёл от шлюза, не войдя, — это отказ, даже если кнопку не нажимал. */
 async function countAbandon(tabId: number): Promise<void> {
   const gate = await takeGateTab(tabId);
-  if (gate) await statDecline(Date.now() - gate.at);
+  if (gate) await statDecline(gate.waited);
 }
 
 export default defineBackground(() => {

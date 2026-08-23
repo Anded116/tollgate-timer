@@ -101,7 +101,7 @@ export interface Metrics {
   cleanStreak: number;
   /** Время у шлюза за 7 дней, мс. */
   waitedMs: number;
-  /** Среднее заходов в день: последние 7 дней и предыдущие 7. */
+  /** Среднее заходов в день по прожитым дням окна: последние 7 и предыдущие 7. */
   avg7: number;
   avgPrev7: number;
 }
@@ -120,9 +120,24 @@ function sumRange(stats: StatsMap, from: string, days: number) {
   return { v, d, w };
 }
 
+/** Сколько дней окна реально прожито: до первого запуска дней не было. */
+function trackedDays(from: string, days: number, firstRun: string, today: string): number {
+  let n = 0;
+  for (let i = 0; i < days; i++) {
+    const key = shiftDay(from, i);
+    if (key >= firstRun && key <= today) n++;
+  }
+  return n;
+}
+
 export function aggregate(stats: StatsMap, firstRun: string, today = dayKey()): Metrics {
-  const cur = sumRange(stats, shiftDay(today, -6), 7);
-  const prev = sumRange(stats, shiftDay(today, -13), 7);
+  const curFrom = shiftDay(today, -6);
+  const prevFrom = shiftDay(today, -13);
+  const cur = sumRange(stats, curFrom, 7);
+  const prev = sumRange(stats, prevFrom, 7);
+  // Делить на 7 нельзя: на свежей установке это занижает среднее в разы.
+  const curDays = trackedDays(curFrom, 7, firstRun, today);
+  const prevDays = trackedDays(prevFrom, 7, firstRun, today);
   const attempts = cur.v + cur.d;
 
   let cleanStreak = 0;
@@ -140,8 +155,8 @@ export function aggregate(stats: StatsMap, firstRun: string, today = dayKey()): 
     declineRate: attempts > 0 ? cur.d / attempts : null,
     cleanStreak,
     waitedMs: cur.w,
-    avg7: cur.v / 7,
-    avgPrev7: prev.v / 7,
+    avg7: curDays > 0 ? cur.v / curDays : 0,
+    avgPrev7: prevDays > 0 ? prev.v / prevDays : 0,
   };
 }
 

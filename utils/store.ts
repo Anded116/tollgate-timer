@@ -102,12 +102,28 @@ export async function setTabSite(
 interface GateTab {
   site: string;
   at: number;
+  /** Активное время у шлюза, мс: только пока вкладка видима и в фокусе. */
+  waited: number;
 }
 
 export async function markGateTab(tabId: number, site: string, at = Date.now()): Promise<void> {
   const { gateTabs } = await browser.storage.local.get('gateTabs');
   const map = (gateTabs as Record<string, GateTab> | undefined) ?? {};
-  map[String(tabId)] = { site, at };
+  map[String(tabId)] = { site, at, waited: 0 };
+  await browser.storage.local.set({ gateTabs: map });
+}
+
+/**
+ * Сохранить активное время ожидания у шлюза. Страница шлюза докладывает его
+ * сама: настенные часы тут не годятся — вкладка со шлюзом может часами лежать
+ * в фоне, где круг не тикает, и это не ожидание.
+ */
+export async function updateGateWait(tabId: number, waited: number): Promise<void> {
+  const { gateTabs } = await browser.storage.local.get('gateTabs');
+  const map = (gateTabs as Record<string, GateTab> | undefined) ?? {};
+  const entry = map[String(tabId)];
+  if (!entry) return;
+  entry.waited = waited;
   await browser.storage.local.set({ gateTabs: map });
 }
 
