@@ -10,6 +10,7 @@
     "build:firefox": "wxt build -b firefox",
     "dev": "wxt",
     "dev:firefox": "wxt -b firefox",
+    "fetch:signed": "node scripts/fetch-signed.mjs",
     "postinstall": "wxt prepare",
     "sign:firefox": "wxt build -b firefox && web-ext sign --source-dir .output/firefox-mv2 --channel unlisted --artifacts-dir .output/signed",
     "zip": "wxt zip",
